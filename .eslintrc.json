@@ -4,7 +4,13 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["prettier", "airbnb", "next/core-web-vitals"],
+  "extends": [
+    "prettier",
+    "airbnb",
+    "next/core-web-vitals",
+    "react-app",
+    "react-app/jest"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
