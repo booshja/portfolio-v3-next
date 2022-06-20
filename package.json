@@ -2,19 +2,71 @@
   "name": "portfolio-v3-next",
   "version": "0.1.0",
   "private": true,
+  "description": "Next.js Portfolio v3 for jacobandes.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/booshja/next-portfolio-v3.git"
+  },
+  "author": "Jacob Andes, @booshja, jacobandes.dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/booshja/next-portfolio-v3/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@reduxjs/toolkit": "^1.8.2",
     "next": "12.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-google-recaptcha": "^2.1.0",
+    "react-hook-form": "^7.32.2",
+    "react-redux": "^8.0.2",
+    "styled-components": "^5.3.5",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@redux-devtools/core": "^3.13.1",
     "eslint": "8.18.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "generate-changelog": "^1.8.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
+    "prettier": "^2.7.1"
   }
 }

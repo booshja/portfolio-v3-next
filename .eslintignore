@@ -1,0 +1,5 @@
+**/build/*
+**/dependencies/*
+.husky/*
+package-lock.json
+package.json
