@@ -1,16 +1,11 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es6": true,
     "jest": true
   },
-  "extends": [
-    "prettier",
-    "airbnb",
-    "next/core-web-vitals",
-    "react-app",
-    "react-app/jest"
-  ],
+  "extends": ["prettier", "airbnb", "next/core-web-vitals"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -19,7 +14,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": "latest",
+    "ecmaVersion": 13,
     "sourceType": "module"
   },
   "plugins": ["prettier"],
