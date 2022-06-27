@@ -18,7 +18,7 @@ const Is = () => (
     <IsPageContainer>
       <MyName>Jacob Andes</MyName>
       <LandingDivider />
-      <MyTitle>Full Stack Software Engineer</MyTitle>
+      <MyTitle>{/* Full Stack */}Software Engineer</MyTitle>
     </IsPageContainer>
   </PublicLayout>
 );

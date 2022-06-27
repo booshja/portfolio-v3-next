@@ -75,9 +75,10 @@ const About = () => (
               partner
               </StoryLink>
             &nbsp; */}
-              partner and dogs, listening to music, going to see live music,
-              reading, watching hockey, or clumsily playing hockey in the Kraken
-              Hockey League.
+              {/* partner and  */}
+              dogs, listening to music, going to see live music, reading,
+              watching hockey, or clumsily playing hockey in the Kraken Hockey
+              League.
             </StoryText>
           </section>
           <SkillsSection>
