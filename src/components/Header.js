@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 // assets
 import { faMountain } from '@fortawesome/free-solid-svg-icons';
 // components
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   HeaderContainer,
@@ -40,34 +41,29 @@ const Header = ({ notFound }) => {
 
   return (
     <HeaderContainer>
-      <WebsiteNameContainer>
-        <WebsiteName href="/">
-          {`JacobAndes.${makeBreadcrumbs(router.pathname)}`}
-        </WebsiteName>
+      <WebsiteNameContainer id="website-name-container">
+        <Link passHref href="/">
+          <WebsiteName>
+            {`JacobAndes.${makeBreadcrumbs(router.pathname)}`}
+          </WebsiteName>
+        </Link>
       </WebsiteNameContainer>
       <Nav>
-        <StyledNavLink href="/" passHref>
-          {/* eslint-disable-next-line */}
-          <a>.is()</a>
-        </StyledNavLink>
-        <StyledNavLink href="/experience" passHref>
-          {/* eslint-disable-next-line */}
-          <a>.experience()</a>
-        </StyledNavLink>
-        <StyledNavLink href="/about" passHref>
-          {/* eslint-disable-next-line */}
-          <a>.about()</a>
-        </StyledNavLink>
-
-        <StyledNavLink href="/contact" passHref>
-          {/* eslint-disable-next-line */}
-          <a>.contact()</a>
-        </StyledNavLink>
-        {/* <StyledNavLink href="/store">
-        <a>
-        .store()
-        </a>
-      </StyledNavLink> */}
+        <Link passHref href="/">
+          <StyledNavLink>.is()</StyledNavLink>
+        </Link>
+        <Link passHref href="/experience">
+          <StyledNavLink>.experience()</StyledNavLink>
+        </Link>
+        <Link href="/about" passHref>
+          <StyledNavLink>.about()</StyledNavLink>
+        </Link>
+        <Link href="/contact" passHref>
+          <StyledNavLink>.contact()</StyledNavLink>
+        </Link>
+        {/* <Link href="/store" passHref>
+          <StyledNavLink href="/store">.store()</StyledNavLink>
+        </Link> */}
         <NavButton onClick={() => dispatch(setNextTheme())}>
           <FontAwesomeIcon icon={faMountain} />
           {` ${theme.themeName}`}

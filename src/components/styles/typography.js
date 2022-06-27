@@ -1,7 +1,6 @@
 // dependencies
 import styled from 'styled-components';
 // components
-import Link from 'next/link';
 import { breakpoints, breakpointValues } from '../../styles/breakpoints';
 
 // eslint-disable-next-line
@@ -34,7 +33,7 @@ const FollowMe = styled.p`
 `;
 
 /** Links ********************************************** */
-const BaseReactLink = styled(Link)`
+const BaseLink = styled.a`
   font-family: Poppins, sans-serif;
   font-weight: 700;
   color: ${({ theme: t }) => t.textPrimary};
@@ -48,17 +47,17 @@ const BaseReactLink = styled(Link)`
   }
 `;
 
-const WebsiteName = styled(BaseReactLink)`
+const WebsiteName = styled(BaseLink)`
   font-size: 2rem;
   text-decoration: none;
 `;
 
-const ResultLink = styled(BaseReactLink)`
+const ResultLink = styled(BaseLink)`
   font-size: 3rem;
   text-decoration: underline;
 `;
 
-const StyledNavLink = styled(Link)`
+const StyledNavLink = styled.a`
   font-family: Sen, sans-serif;
   font-size: 1.8rem;
   font-weight: 400;
