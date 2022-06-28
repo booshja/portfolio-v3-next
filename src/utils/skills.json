@@ -2,7 +2,7 @@
   "skills": [
     "JavaScript / Node.js",
     "React.js",
-    "Next.js",
+    "NextJS",
     "Redux ToolKit",
     "RTK Query",
     "styled-components",
@@ -20,6 +20,9 @@
     "SQL",
     "Auth0",
     "Heroku",
+    "Vercel",
+    "Cloudflare Pages",
+    "Surge.sh",
     "Git",
     "GitHub",
     "Figma",
