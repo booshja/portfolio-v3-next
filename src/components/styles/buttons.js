@@ -8,6 +8,7 @@ const NavButton = styled.button`
   color: ${({ theme: t }) => t.textPrimary};
   border: none;
   margin-left: 0.75rem;
+  display: flex;
 
   svg {
     color: ${({ theme: t }) => t.textPrimary};

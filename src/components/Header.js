@@ -41,7 +41,7 @@ const Header = ({ notFound }) => {
 
   return (
     <HeaderContainer>
-      <WebsiteNameContainer id="website-name-container">
+      <WebsiteNameContainer>
         <Link passHref href="/">
           <WebsiteName>
             {`JacobAndes.${makeBreadcrumbs(router.pathname)}`}
@@ -65,7 +65,7 @@ const Header = ({ notFound }) => {
           <StyledNavLink href="/store">.store()</StyledNavLink>
         </Link> */}
         <NavButton onClick={() => dispatch(setNextTheme())}>
-          <FontAwesomeIcon icon={faMountain} />
+          <FontAwesomeIcon icon={faMountain} fontSize="inherit" />
           {` ${theme.themeName}`}
         </NavButton>
       </Nav>

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLaptop } from '@fortawesome/free-solid-svg-icons';
 // components
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PublicLayout } from '../../components';
 import {
@@ -65,11 +66,16 @@ const Experience = ({ projects }) => {
                 <ExpCard>
                   <ExpCardInner>
                     <ExpCardFront>
-                      <Screencap
-                        src={item.image_url}
-                        alt={`${item.name} screen capture.`}
-                        layout="fill"
-                      />
+                      <Screencap>
+                        <Image
+                          src={item.image_url}
+                          alt={`${item.name} screen capture.`}
+                          priority
+                          layout="fill"
+                          objectFit="contain"
+                          objectPosition="50% 50%"
+                        />
+                      </Screencap>
                     </ExpCardFront>
                     <ExpCardBack>
                       <ExpCardLink href={item.github_url}>

@@ -2,18 +2,20 @@
 import styled, { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
 // components
-import { MainContent, PageContainer } from '../styles/pages/containers';
+import Link from 'next/link';
+import Image from 'next/image';
+import { MainContent, PageContainer } from '../../styles/pages/containers';
 import {
   PageTitle,
   NotFoundLink,
   NotFoundText,
-} from '../styles/pages/typography';
-import { NotFoundImg } from '../styles/pages/media';
-import { Header, Socials, Copyright } from '../components';
+} from '../../styles/pages/typography';
+import { NotFoundImg } from '../../styles/pages/media';
+import { Header, Socials, Copyright } from '../../components';
 // assets
-import SadIceCream from '../assets/sad-ice-cream.jpeg';
+import SadIceCream from '../../assets/sad-ice-cream.jpeg';
 // state
-import { selectTheme } from '../redux/slices/themeSlice';
+import { selectTheme } from '../../redux/slices/themeSlice';
 
 const NotFoundContainer = styled(PageContainer)`
   background-color: ${({ theme: t }) => t.bgSecondary};
@@ -28,6 +30,7 @@ const NotFoundContainer = styled(PageContainer)`
 const NotFoundContent = styled(MainContent)`
   flex-direction: column;
   align-items: center;
+  position: relative;
 `;
 
 const NotFound = () => {
@@ -44,16 +47,21 @@ const NotFound = () => {
           <NotFoundText>Uh oh, couldn&apos;t find that&hellip;</NotFoundText>
           <NotFoundText>
             Click&nbsp;
-            <NotFoundLink href="/" passHref>
-              {/* eslint-disable-next-line */}
-              <a>here</a>
-            </NotFoundLink>
+            <Link href="/" passHref>
+              <NotFoundLink>here</NotFoundLink>
+            </Link>
             &nbsp;to go back home.
           </NotFoundText>
-          <NotFoundImg
-            src={SadIceCream}
-            alt="Ice cream dropped on a stone slab"
-          />
+          <NotFoundImg>
+            <Image
+              src={SadIceCream}
+              alt="Ice cream dropped on a stone slab"
+              layout="fill"
+              priority
+              objectFit="contain"
+              objectPosition="50% bottom"
+            />
+          </NotFoundImg>
         </NotFoundContent>
       </NotFoundContainer>
     </ThemeProvider>

@@ -2,6 +2,8 @@
 import styled, { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
 // components
+import Image from 'next/image';
+import Link from 'next/link';
 import { PageContainer } from '../../styles/pages/containers';
 import { NotFoundLink } from '../../styles/pages/typography';
 import { BugsNoImg } from '../../styles/pages/media';
@@ -26,11 +28,19 @@ const WpAdmin = () => {
   return (
     <ThemeProvider theme={currentTheme}>
       <NotFoundContainer wp>
-        <BugsNoImg src={BugsSaysNo} alt="Bugs bunny no meme" />
-        <NotFoundLink href="/" passHref>
-          {/* eslint-disable-next-line */}
-          <a>Go Back</a>
-        </NotFoundLink>
+        <BugsNoImg>
+          <Image
+            src={BugsSaysNo}
+            alt="Bugs bunny no meme"
+            layout="fill"
+            priority
+            objectFit="contain"
+            objectPosition="50% bottom"
+          />
+        </BugsNoImg>
+        <Link href="/" passHref>
+          <NotFoundLink>Go Back</NotFoundLink>
+        </Link>
       </NotFoundContainer>
     </ThemeProvider>
   );

@@ -228,7 +228,7 @@ const ReCAPTCHALink = styled.a`
   }
 `;
 
-const NotFoundLink = styled(Link)`
+const NotFoundLink = styled.a`
   font-size: 3rem;
   font-weight: 700;
   text-decoration: underline;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { v4 as randomId } from 'uuid';
 // components
 import Image from 'next/image';
+// import Link from 'next/link';
 import { PublicLayout } from '../../components';
 import {
   PageContainer,
@@ -31,7 +32,7 @@ const AboutContainer = styled(PageContainer)`
 `;
 
 const RightSide = styled(Right)`
-  width: 40%;
+  width: 50%;
   margin-bottom: 5rem;
   padding-top: 10rem;
 `;
@@ -67,15 +68,14 @@ const About = () => (
             <StoryText>
               When I&apos;m not coding, you can find me spending time with
               my&nbsp;
-              {/* <StoryLink
-              href="https://paintingjoy.art"
+              {/* <Link href="https://paintingjoy.art" passHref><StoryLink
               target="_blank"
               rel="noopener noreferrer"
               >
               partner
               </StoryLink>
-            &nbsp; */}
-              {/* partner and  */}
+              </Link>
+            &nbsp;partner and  */}
               dogs, listening to music, going to see live music, reading,
               watching hockey, or clumsily playing hockey in the Kraken Hockey
               League.
@@ -94,8 +94,10 @@ const About = () => (
           <Image
             src={Headshot}
             alt="Jacob smiling in front of an abstact, brightly colored cloud mural by Painting Joy Mural Co."
-            width="100%"
-            height="100%"
+            layout="fill"
+            priority
+            objectFit="contain"
+            objectPosition="50% 35%"
           />
         </RightSide>
       </MainContent>

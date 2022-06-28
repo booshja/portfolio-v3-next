@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 // import { useAddNewMessageMutation } from '../../services/booshjaAPI';
 // import sendEmail from '../../services/emailService';
 // components
+import Image from 'next/image';
 import {
   PageContainer,
   MainContent,
@@ -133,7 +134,7 @@ const Contact = () => {
                 id="message"
                 maxLength="200"
                 rows="4"
-                // es-lint-ignore-next-line
+                // es-lint-disable-next-line
                 {...register('message', {
                   required: 'Message is required.',
                   maxLength: {
@@ -160,11 +161,16 @@ const Contact = () => {
             </ContactForm>
           </LeftSide>
           <RightSide>
-            <MailImg
-              src={MailBoxes}
-              alt="Wall of blue P.O. Boxes."
-              layout="fill"
-            />
+            <MailImg>
+              <Image
+                src={MailBoxes}
+                alt="Wall of blue P.O. Boxes."
+                layout="fill"
+                priority
+                objectFit="contain"
+                objectPosition="50% bottom"
+              />
+            </MailImg>
           </RightSide>
         </MainContent>
       </>
