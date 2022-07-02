@@ -3,9 +3,6 @@ import React, { createRef, useState } from 'react';
 import styled from 'styled-components';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
-// services
-// import { useAddNewMessageMutation } from '../../services/booshjaAPI';
-// import sendEmail from '../../services/emailService';
 // components
 import Head from 'next/head';
 import Image from 'next/image';
@@ -31,6 +28,9 @@ import {
 } from '../../styles/pages/typography';
 // assets
 import MailBoxes from '../../../public/images/po-boxes.jpeg';
+// services
+// import { useAddNewMessageMutation } from '../../services/booshjaAPI';
+import sendEmail from '../../services/emailService';
 
 const ContactContainer = styled(PageContainer)`
   background-color: ${({ theme: t }) => t.bgSecondary};
@@ -72,8 +72,17 @@ const Contact = () => {
 
   const recaptchaChange = async () => {
     if (!emailSent) {
-      console.log('Sending email!', data);
-      // await sendEmail(data);
+      if (
+        // eslint-disable-next-line
+        process.env.NODE_ENV === 'production' ||
+        process.env.NODE_ENV === 'staging'
+      ) {
+        await sendEmail(data);
+      } else {
+        // eslint-disable-next-line
+        console.log('Sending email here...', data);
+      }
+
       setEmailSent(true);
       setApproval(true);
       setLoading(false);
@@ -118,6 +127,7 @@ const Contact = () => {
                 type="text"
                 placeholder="Namey McNameson"
                 id="name"
+                // eslint-disable-next-line
                 {...register('name', { required: 'Name is required.' })}
               />
               {errors.name && <FormError>{errors.name.message}</FormError>}
@@ -126,6 +136,7 @@ const Contact = () => {
                 type="text"
                 placeholder="example@email.com"
                 id="email"
+                // eslint-disable-next-line
                 {...register('email', { required: 'Email is required.' })}
               />
               {errors.email && <FormError>{errors.email.message}</FormError>}
@@ -135,7 +146,7 @@ const Contact = () => {
                 id="message"
                 maxLength="200"
                 rows="4"
-                // es-lint-disable-next-line
+                // eslint-disable-next-line
                 {...register('message', {
                   required: 'Message is required.',
                   maxLength: {
