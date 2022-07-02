@@ -6,7 +6,6 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLaptop } from '@fortawesome/free-solid-svg-icons';
 // components
 import Head from 'next/head';
-import Script from 'next/script';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -135,10 +134,6 @@ const Experience = ({ projects }) => {
         />
         <meta name="robots" content="index, follow" />
       </Head>
-      <Script
-        src="https://kit.fontawesome.com/396432886d.js"
-        crossOrigin="anonymous"
-      />
       <PublicLayout>
         <ExpContainer>
           <PageTitle>experience()</PageTitle>

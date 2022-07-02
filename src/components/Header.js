@@ -6,9 +6,7 @@ import { useDispatch } from 'react-redux';
 // assets
 import { faMountain } from '@fortawesome/free-solid-svg-icons';
 // components
-import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   HeaderContainer,
@@ -43,10 +41,6 @@ const Header = ({ notFound }) => {
 
   return (
     <HeaderContainer>
-      <Script
-        src="https://kit.fontawesome.com/396432886d.js"
-        crossOrigin="anonymous"
-      />
       <WebsiteNameContainer>
         <Link passHref href="/">
           <WebsiteName>
