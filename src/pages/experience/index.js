@@ -148,7 +148,7 @@ export const getStaticProps = async () => {
   try {
     await connectMongo();
 
-    const projects = await Project.find();
+    const projects = await Project.find({}).sort({ position: 1 });
 
     return {
       props: { projects: JSON.parse(JSON.stringify(projects)) },
