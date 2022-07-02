@@ -1,6 +1,5 @@
 // dependencies
 import styled from 'styled-components';
-import Link from 'next/link';
 import { breakpoints, breakpointValues } from '../breakpoints';
 
 // eslint-disable-next-line
@@ -183,9 +182,11 @@ const ExpCardLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
+  max-height: calc(2.2rem * 1.5);
+  border: 2px solid red;
 
-  span {
-    font-size: 3.5rem;
+  svg {
+    height: 100%;
     margin-right: 1.25rem;
   }
 
@@ -195,6 +196,7 @@ const ExpCardLink = styled.a`
 
   &:focus-visible {
     outline: 1px solid ${({ theme: t }) => t.textSecondary};
+    font-style: italic;
   }
 `;
 

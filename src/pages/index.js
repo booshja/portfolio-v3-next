@@ -18,7 +18,15 @@ const Is = () => (
     <IsPageContainer>
       <MyName>Jacob Andes</MyName>
       <LandingDivider />
-      <MyTitle>{/* Full Stack */}Software Engineer</MyTitle>
+      <MyTitle>Software Engineer</MyTitle>
+      <button
+        type="button"
+        onClick={() => {
+          throw new Error('Sentry Frontend Error');
+        }}
+      >
+        Throw error
+      </button>
     </IsPageContainer>
   </PublicLayout>
 );

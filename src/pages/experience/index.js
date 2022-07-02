@@ -6,6 +6,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLaptop } from '@fortawesome/free-solid-svg-icons';
 // components
 import Image from 'next/image';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PublicLayout } from '../../components';
 import {
@@ -78,19 +79,30 @@ const Experience = ({ projects }) => {
                       </Screencap>
                     </ExpCardFront>
                     <ExpCardBack>
-                      <ExpCardLink href={item.github_url}>
-                        <span>
-                          <FontAwesomeIcon icon={faGithub} />
-                        </span>
-                        View on GitHub
-                      </ExpCardLink>
+                      {item?.github_url && (
+                        <Link passHref href={item.github_url}>
+                          <ExpCardLink
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <FontAwesomeIcon icon={faGithub} />
+                            View on GitHub
+                          </ExpCardLink>
+                        </Link>
+                      )}
                       {item?.live_url && (
-                        <ExpCardLink href={item.live_url}>
-                          <span>
+                        <Link passHref href={item.live_url}>
+                          <ExpCardLink
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <FontAwesomeIcon icon={faLaptop} />
-                          </span>
-                          View Live Website
-                        </ExpCardLink>
+                            View Live Website
+                          </ExpCardLink>
+                        </Link>
+                      )}
+                      {!item?.live_url && !item?.github_url && (
+                        <p>No Links Available!</p>
                       )}
                     </ExpCardBack>
                   </ExpCardInner>
@@ -127,9 +139,11 @@ export const getStaticProps = async () => {
 
     const projects = await Project.find();
 
-    return { props: { projects: JSON.parse(JSON.stringify(projects)) } };
+    return {
+      props: { projects: JSON.parse(JSON.stringify(projects)) },
+      revalidate: 10080,
+    };
   } catch (error) {
-    console.log(error);
     return { notFound: true };
   }
 };

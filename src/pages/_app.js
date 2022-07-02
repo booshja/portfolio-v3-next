@@ -8,7 +8,6 @@ import { setCurrentTheme, setThemeNumber } from '../redux/slices/themeSlice';
 // css
 import GlobalStyle from '../styles/globalStyles';
 import { THEMES } from '../styles/themes';
-import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => {
   const dispatch = useDispatch();
@@ -29,11 +28,13 @@ const MyApp = ({ Component, pageProps }) => {
     } else if (!rememberedTheme) {
       localStorage.setItem('theme', 'Light');
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
     <>
       <GlobalStyle />
+      {/* eslint-disable-next-line */}
       <Component {...pageProps} />
     </>
   );
