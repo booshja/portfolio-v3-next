@@ -1,6 +1,8 @@
 // dependencies
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 // components
 import Head from 'next/head';
 import { wrapper } from '../redux/store';
@@ -13,6 +15,8 @@ import {
 // css
 import GlobalStyle from '../styles/globalStyles';
 import { THEMES } from '../styles/themes';
+// font awesome config
+config.autoAddCss = false;
 
 const MyApp = ({ Component, pageProps }) => {
   const dispatch = useDispatch();
