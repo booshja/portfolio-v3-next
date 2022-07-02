@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 // import { useAddNewMessageMutation } from '../../services/booshjaAPI';
 // import sendEmail from '../../services/emailService';
 // components
+import Head from 'next/head';
 import Image from 'next/image';
 import {
   PageContainer,
@@ -29,7 +30,7 @@ import {
   ReCAPTCHAText,
 } from '../../styles/pages/typography';
 // assets
-import MailBoxes from '../../assets/po-boxes.jpeg';
+import MailBoxes from '../../../public/images/po-boxes.jpeg';
 
 const ContactContainer = styled(PageContainer)`
   background-color: ${({ theme: t }) => t.bgSecondary};
@@ -178,21 +179,28 @@ const Contact = () => {
   }
 
   return (
-    <PublicLayout>
-      <ContactContainer>
-        {content}
-        <ReCAPTCHA
-          ref={recaptchaRef}
-          size="invisible"
-          sitekey={sitekey}
-          onChange={recaptchaChange}
-          onError={() => {
-            setError(true);
-            setLoading(false);
-          }}
-        />
-      </ContactContainer>
-    </PublicLayout>
+    <>
+      <Head>
+        <title>Contact Me</title>
+        <meta name="description" content="Contact Jacob Andes via this form." />
+        <meta name="robots" content="index, follow" />
+      </Head>
+      <PublicLayout>
+        <ContactContainer>
+          {content}
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            size="invisible"
+            sitekey={sitekey}
+            onChange={recaptchaChange}
+            onError={() => {
+              setError(true);
+              setLoading(false);
+            }}
+          />
+        </ContactContainer>
+      </PublicLayout>
+    </>
   );
 };
 

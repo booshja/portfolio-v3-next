@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLaptop } from '@fortawesome/free-solid-svg-icons';
 // components
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -124,12 +125,22 @@ const Experience = ({ projects }) => {
   }
 
   return (
-    <PublicLayout>
-      <ExpContainer>
-        <PageTitle>experience()</PageTitle>
-        {content}
-      </ExpContainer>
-    </PublicLayout>
+    <>
+      <Head>
+        <title>My Experience</title>
+        <meta
+          name="description"
+          content="The experience and projects of Jacob Andes."
+        />
+        <meta name="robots" content="index, follow" />
+      </Head>
+      <PublicLayout>
+        <ExpContainer>
+          <PageTitle>experience()</PageTitle>
+          {content}
+        </ExpContainer>
+      </PublicLayout>
+    </>
   );
 };
 

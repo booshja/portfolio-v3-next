@@ -2,6 +2,7 @@
 import styled, { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
 // components
+import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MainContent, PageContainer } from '../../styles/pages/containers';
@@ -13,7 +14,7 @@ import {
 import { NotFoundImg } from '../../styles/pages/media';
 import { Header, Socials, Copyright } from '../../components';
 // assets
-import SadIceCream from '../../assets/sad-ice-cream.jpeg';
+import SadIceCream from '../../../public/images/sad-ice-cream.jpeg';
 // state
 import { selectTheme } from '../../redux/slices/themeSlice';
 
@@ -38,6 +39,11 @@ const NotFound = () => {
 
   return (
     <ThemeProvider theme={currentTheme}>
+      <Head>
+        <title>Uh oh...</title>
+        <meta name="description" content="Not Found" />
+        <meta name="robots" content="noindex, follow" />
+      </Head>
       <Header notFound />
       <Socials />
       <Copyright />

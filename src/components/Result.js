@@ -1,6 +1,6 @@
 // assets
-import Fireworks from '../assets/fireworks.jpeg';
-import IceCream from '../assets/sad-ice-cream.jpeg';
+import Fireworks from '../../public/images/fireworks.jpeg';
+import IceCream from '../../public/images/sad-ice-cream.jpeg';
 // components
 import { ResultText, ResultLink } from './styles/typography';
 import { ColumnFlex } from './styles/containers';
