@@ -88,6 +88,7 @@ const MyApp = ({ Component, pageProps }) => {
         /> */}
         <meta name="theme-color" content={currentTheme.bgPrimary} />
         <link rel="canonical" href="https://jacobandes.dev" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalStyle />
       {/* eslint-disable-next-line */}
