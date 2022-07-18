@@ -36,13 +36,15 @@ import connectMongo from '../../utils/connectMongo';
 import Project from '../../models/projectModel';
 
 const ExpContainer = styled(PageContainer)`
-  background-color: ${({ theme: t }) => t.bgSecondary};
+  background-color: var(--color-bg-secondary);
   height: 100%;
   min-height: 100vh;
 `;
 
 const Experience = ({ projects }) => {
   let content;
+
+  // console.log(projects);
 
   if (projects.length) {
     content = (
@@ -59,7 +61,7 @@ const Experience = ({ projects }) => {
                   <span>thoughts: </span> {item.thoughts}
                 </ExpItemText>
                 <TagList>
-                  {item.tags.map((tag) => (
+                  {JSON.parse(item.tags).map((tag) => (
                     <Tag key={randomId()}>{tag}</Tag>
                   ))}
                 </TagList>
@@ -148,7 +150,7 @@ export const getStaticProps = async () => {
   try {
     await connectMongo();
 
-    const projects = await Project.find({}).sort({ position: 1 });
+    const projects = await Project.find({}, null, { sort: { position: 1 } });
 
     return {
       props: { projects: JSON.parse(JSON.stringify(projects)) },

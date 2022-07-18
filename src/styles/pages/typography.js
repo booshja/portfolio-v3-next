@@ -12,7 +12,7 @@ const MyName = styled.h1`
   font-weight: 700;
   letter-spacing: 5%;
   margin-bottom: 1rem;
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
 
   ${breakpoints('font-size', 'rem', [
     { [mobileLg]: 6 },
@@ -28,27 +28,27 @@ const MyName = styled.h1`
 `;
 
 const PageTitle = styled.h1`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   align-self: flex-start;
   justify-self: flex-start;
   font-size: 4rem;
 `;
 
 const StoryGreeting = styled.h2`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 3rem;
   margin: 3rem 0 1rem 0;
 `;
 
 const SkillsHeader = styled.h2`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 2.6rem;
   font-weight: 700;
   margin: 2rem 0;
 `;
 
 const ExpItemName = styled.h3`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -60,7 +60,7 @@ const MyTitle = styled.p`
   font-size: 2.4rem;
   font-weight: 700;
   letter-spacing: 2.5%;
-  color: ${({ theme: t }) => t.textSecondary};
+  color: var(--color-text-secondary);
 
   ${breakpoints('font-size', 'rem', [
     { [mobileLg]: 2.8 },
@@ -72,7 +72,7 @@ const MyTitle = styled.p`
 `;
 
 const ExpItemText = styled.p`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 2rem;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -92,7 +92,7 @@ const Hi = styled.span`
 `;
 
 const StoryText = styled.p`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 2rem;
   margin: 1rem 0 1rem 2rem;
   line-height: 1.5;
@@ -102,12 +102,12 @@ const StoryText = styled.p`
 const ContactText = styled.p`
   font-size: 2.2rem;
   margin-bottom: 2rem;
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   margin: 2rem 0 1rem 2rem;
 `;
 
 const ReCAPTCHAText = styled.p`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 1.2rem;
   margin-bottom: 1rem;
 `;
@@ -115,18 +115,18 @@ const ReCAPTCHAText = styled.p`
 const NotFoundText = styled.p`
   font-size: 3rem;
   margin-bottom: 2rem;
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   margin: 2rem 0 1rem 2rem;
 `;
 
 /** Lists ********************************************** */
 const ExpList = styled.ul`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   padding: 2rem 0 3rem 3rem;
 `;
 
 const ExpItem = styled.li`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 1.8rem;
   margin-bottom: 3rem;
   display: flex;
@@ -144,10 +144,11 @@ const TagList = styled.ul`
   margin-top: 1rem;
 `;
 
+// TODO: fix theme inerpolation below
 const Tag = styled.li`
   border-radius: 15px;
-  background-color: ${({ theme: t }) => t.bgCard};
-  color: ${({ theme: t }) => t.bgPrimary};
+  background-color: var(--color-bg-card);
+  color: var(--color-bg-primary);
   ${({ theme: t }) => t.themeName === 'Light' && 'color: #000000;'};
   border: ${({ theme: t }) =>
     t.themeName === 'Light' ? '2px solid #000000' : 'none'};
@@ -169,7 +170,7 @@ const SkillsList = styled.ul`
 `;
 
 const Skill = styled.li`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 2rem;
   margin: 1rem 0;
 `;
@@ -195,13 +196,13 @@ const ExpCardLink = styled.a`
   }
 
   &:focus-visible {
-    outline: 1px solid ${({ theme: t }) => t.textSecondary};
+    outline: 1px solid var(--color-text-secondary);
     font-style: italic;
   }
 `;
 
 const StoryLink = styled.a`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 2rem;
   font-weight: 700;
   text-decoration: underline;
@@ -211,12 +212,12 @@ const StoryLink = styled.a`
   }
 
   &:focus-visible {
-    outline: 1px solid ${({ theme: t }) => t.textSecondary};
+    outline: 1px solid var(--color-text-secondary);
   }
 `;
 
 const ReCAPTCHALink = styled.a`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 1.2rem;
   text-decoration: underline;
   font-weight: 700;
@@ -226,7 +227,7 @@ const ReCAPTCHALink = styled.a`
   }
 
   &:focus-visible {
-    outline: 1px solid ${({ theme: t }) => t.textSecondary};
+    outline: 1px solid var(--color-text-secondary);
   }
 `;
 
@@ -234,14 +235,14 @@ const NotFoundLink = styled.a`
   font-size: 3rem;
   font-weight: 700;
   text-decoration: underline;
-  color: ${({ theme: t }) => t.textSecondary};
+  color: var(--color-text-secondary);
 
   &:hover {
     filter: brightness(80%);
   }
 
   &:focus-visible {
-    outline: 1px solid ${({ theme: t }) => t.textPrimary};
+    outline: 1px solid var(--color-text-primary);
   }
 `;
 
@@ -255,7 +256,7 @@ const ContactForm = styled.form`
 
 const ContactLabel = styled.label`
   font-size: 2rem;
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   margin-bottom: 0.5rem;
 `;
 
@@ -267,7 +268,7 @@ const ContactInput = styled.input`
   width: calc(100% - 1rem);
 
   &:focus {
-    outline: 1px solid ${({ theme: t }) => t.textSecondary};
+    outline: 1px solid var(--color-text-secondary);
   }
 `;
 
@@ -279,7 +280,7 @@ const ContactTextArea = styled.textarea`
   width: calc(100% - 1rem);
 
   &:focus {
-    outline: 1px solid ${({ theme: t }) => t.textSecondary};
+    outline: 1px solid var(--color-text-secondary);
   }
 `;
 

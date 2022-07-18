@@ -1,17 +1,14 @@
 // dependencies
 import React from 'react';
+// components
 import { CopyrightText } from './styles/typography';
 
-const Copyright = () => {
-  const thisYear = new Date().getFullYear();
-
-  return (
-    <footer>
-      <CopyrightText>
-        Copyright &copy; 2020-{thisYear} - jacobandes.dev
-      </CopyrightText>
-    </footer>
-  );
-};
+const Copyright = () => (
+  <footer>
+    <CopyrightText>
+      &copy; 2020 - Present Jacob Andes. All Rights Reserved.
+    </CopyrightText>
+  </footer>
+);
 
 export default Copyright;

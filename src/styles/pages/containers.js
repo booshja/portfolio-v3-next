@@ -17,7 +17,8 @@ const PageContainer = styled.main`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  /* height: 100%; */
   margin-top: -60px;
   padding: 8rem 10rem 0 10rem;
 `;
@@ -60,33 +61,39 @@ const ExpCard = styled.div`
   }
 `;
 
+// TODO: fix interpolated values
 const ExpCardBack = styled(ColumnFlex)`
   justify-content: space-evenly;
-  background-color: ${({ theme: t }) => t.bgCard};
-  color: ${({ theme: t }) => t.textCard};
+  background-color: var(--color-bg-card);
+  color: var(--color-text-card);
   transform: rotateY(180deg);
   position: absolute;
   width: 300px;
   height: 300px;
   backface-visibility: hidden;
   padding: 20% 1rem 20% 1rem;
-  border: ${({ theme: t }) =>
-    t.themeName === 'Light' ? '2px solid #000000' : 'none'};
+  ${({ theme: t }) =>
+    t.themeName === 'Light' ? 'border: 2px solid #000000;' : null}
+  ${({ theme: t }) => (t.themeName === 'Light' ? 'border-radius: 6px;' : null)}
 
   & a:nth-of-type(1) {
     margin-bottom: 3rem;
   }
 `;
 
+// TODO: fix interpolated values
 const ExpCardFront = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme: t }) => t.bgSecondary};
+  background-color: var(--color-bg-secondary);
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  ${({ theme: t }) =>
+    t.themeName === 'Light' ? 'border: 2px solid #000000;' : null}
+  ${({ theme: t }) => (t.themeName === 'Light' ? 'border-radius: 6px;' : null)}
 `;
 
 const LeftSide = styled.div`
@@ -98,9 +105,9 @@ const LeftSide = styled.div`
 
 const FormError = styled.div`
   font-family: Poppins, sans-serif;
-  border: solid 2px #e9072b;
+  border: solid 2px var(--color-error);
   border-radius: 4px;
-  background-color: #ffcccc;
+  background-color: var(--color-error-background);
   color: #000000;
   font-size: 1.4rem;
   padding: 1rem;
@@ -118,7 +125,7 @@ const RightSide = styled.figure`
 const LandingDivider = styled.div`
   width: 70%;
   height: 4px;
-  background-color: ${({ theme: t }) => t.accent};
+  background-color: var(--color-accent);
   margin-bottom: 1rem;
 
   ${breakpoints('width', '%', [
