@@ -41,12 +41,20 @@ const ExpContainer = styled(PageContainer)`
   min-height: 100vh;
 `;
 
-const Experience = ({ projects }) => {
+const Experience = ({ projects: projs }) => {
   let content;
 
-  // console.log(projects);
+  const projects = projs.map((proj) => {
+    const project = { ...proj };
 
-  if (projects.length) {
+    if (project?.github_url === 'null') project.github_url = null;
+    if (project?.live_url === 'null') project.live_url = null;
+    project.tags = JSON.parse(project.tags);
+
+    return project;
+  });
+
+  if (projects?.length) {
     content = (
       <MainContent className="slide-in-left">
         <ExpList>
@@ -61,7 +69,7 @@ const Experience = ({ projects }) => {
                   <span>thoughts: </span> {item.thoughts}
                 </ExpItemText>
                 <TagList>
-                  {JSON.parse(item.tags).map((tag) => (
+                  {item.tags.map((tag) => (
                     <Tag key={randomId()}>{tag}</Tag>
                   ))}
                 </TagList>
@@ -150,12 +158,15 @@ export const getStaticProps = async () => {
   try {
     await connectMongo();
 
-    const projects = await Project.find({}, null, { sort: { position: 1 } });
+    const result = await Project.find({}, null, { sort: { position: 1 } });
+    const projects = result.map((doc) => {
+      const project = doc.toObject();
+      // eslint-disable-next-line no-underscore-dangle
+      project._id = project._id.toString();
+      return project;
+    });
 
-    return {
-      props: { projects: JSON.parse(JSON.stringify(projects)) },
-      revalidate: 10080,
-    };
+    return { props: { projects }, revalidate: 10080 };
   } catch (error) {
     return { notFound: true };
   }
