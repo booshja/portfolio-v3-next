@@ -61,7 +61,6 @@ const ExpCard = styled.div`
   }
 `;
 
-// TODO: fix interpolated values
 const ExpCardBack = styled(ColumnFlex)`
   justify-content: space-evenly;
   background-color: var(--color-bg-card);
@@ -72,16 +71,15 @@ const ExpCardBack = styled(ColumnFlex)`
   height: 300px;
   backface-visibility: hidden;
   padding: 20% 1rem 20% 1rem;
-  ${({ theme: t }) =>
-    t.themeName === 'Light' ? 'border: 2px solid #000000;' : null}
-  ${({ theme: t }) => (t.themeName === 'Light' ? 'border-radius: 6px;' : null)}
+  ${({ theme }) =>
+    theme === 'light' ? 'border: 2px solid var(--color-text-primary);' : null}
+  ${({ theme }) => (theme === 'light' ? 'border-radius: 6px;' : null)}
 
   & a:nth-of-type(1) {
     margin-bottom: 3rem;
   }
 `;
 
-// TODO: fix interpolated values
 const ExpCardFront = styled.div`
   display: flex;
   justify-content: center;
@@ -91,9 +89,9 @@ const ExpCardFront = styled.div`
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  ${({ theme: t }) =>
-    t.themeName === 'Light' ? 'border: 2px solid #000000;' : null}
-  ${({ theme: t }) => (t.themeName === 'Light' ? 'border-radius: 6px;' : null)}
+  ${({ theme }) =>
+    theme === 'light' ? 'border: 2px solid var(--color-text-primary);' : null}
+  ${({ theme }) => (theme === 'light' ? 'border-radius: 6px;' : null)}
 `;
 
 const LeftSide = styled.div`

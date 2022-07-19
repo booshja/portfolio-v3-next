@@ -144,14 +144,13 @@ const TagList = styled.ul`
   margin-top: 1rem;
 `;
 
-// TODO: fix theme inerpolation below
 const Tag = styled.li`
   border-radius: 15px;
   background-color: var(--color-bg-card);
   color: var(--color-bg-primary);
-  ${({ theme: t }) => t.themeName === 'Light' && 'color: #000000;'};
-  border: ${({ theme: t }) =>
-    t.themeName === 'Light' ? '2px solid #000000' : 'none'};
+  ${({ theme }) => theme === 'light' && 'color: var(--color-text-primary)'};
+  border: ${({ theme }) =>
+    theme === 'light' ? `2px solid var(--color-text-primary)` : 'none'};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,7 +183,6 @@ const ExpCardLink = styled.a`
   align-items: center;
   justify-content: center;
   max-height: calc(2.2rem * 1.5);
-  border: 2px solid red;
 
   svg {
     height: 100%;

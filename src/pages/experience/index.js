@@ -1,4 +1,5 @@
 // dependencies
+import { useContext } from 'react';
 import { v4 as randomId } from 'uuid';
 import styled from 'styled-components';
 // assets
@@ -31,6 +32,8 @@ import {
   TagList,
   ExpCardLink,
 } from '../../styles/pages/typography';
+// context
+import { ThemeContext } from '../../context/themeContext';
 // database
 import connectMongo from '../../utils/connectMongo';
 import Project from '../../models/projectModel';
@@ -42,6 +45,7 @@ const ExpContainer = styled(PageContainer)`
 `;
 
 const Experience = ({ projects: projs }) => {
+  const { colorMode } = useContext(ThemeContext);
   let content;
 
   const projects = projs.map((proj) => {
@@ -54,7 +58,7 @@ const Experience = ({ projects: projs }) => {
     return project;
   });
 
-  if (projects?.length) {
+  if (projects.length) {
     content = (
       <MainContent className="slide-in-left">
         <ExpList>
@@ -70,14 +74,16 @@ const Experience = ({ projects: projs }) => {
                 </ExpItemText>
                 <TagList>
                   {item.tags.map((tag) => (
-                    <Tag key={randomId()}>{tag}</Tag>
+                    <Tag key={randomId()} theme={colorMode}>
+                      {tag}
+                    </Tag>
                   ))}
                 </TagList>
               </ExpLeft>
               <ExpRight>
                 <ExpCard>
                   <ExpCardInner>
-                    <ExpCardFront>
+                    <ExpCardFront theme={colorMode}>
                       <Screencap>
                         <Image
                           src={item.image_url}
@@ -89,7 +95,7 @@ const Experience = ({ projects: projs }) => {
                         />
                       </Screencap>
                     </ExpCardFront>
-                    <ExpCardBack>
+                    <ExpCardBack theme={colorMode}>
                       {item?.github_url && (
                         <Link passHref href={item.github_url}>
                           <ExpCardLink
