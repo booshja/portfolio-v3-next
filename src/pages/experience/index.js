@@ -176,7 +176,7 @@ export const getStaticProps = async () => {
       return project;
     });
 
-    return { props: { projects }, revalidate: 10080 };
+    return { props: { projects }, revalidate: 604800 };
   } catch (error) {
     return { notFound: true };
   }
