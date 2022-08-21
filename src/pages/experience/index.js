@@ -1,9 +1,10 @@
 // dependencies
+import { useContext } from 'react';
 import { v4 as randomId } from 'uuid';
 import styled from 'styled-components';
 // assets
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faLaptop } from '@fortawesome/free-solid-svg-icons';
+import { faLaptop, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 // components
 import Head from 'next/head';
 import Image from 'next/image';
@@ -19,6 +20,7 @@ import {
   ExpCardBack,
   ExpCardFront,
   ExpCardInner,
+  FlipArrow,
 } from '../../styles/pages/containers';
 import { Screencap } from '../../styles/pages/media';
 import {
@@ -31,18 +33,31 @@ import {
   TagList,
   ExpCardLink,
 } from '../../styles/pages/typography';
+// context
+import { ThemeContext } from '../../context/themeContext';
 // database
 import connectMongo from '../../utils/connectMongo';
 import Project from '../../models/projectModel';
 
 const ExpContainer = styled(PageContainer)`
-  background-color: ${({ theme: t }) => t.bgSecondary};
+  background-color: var(--color-bg-secondary);
   height: 100%;
   min-height: 100vh;
 `;
 
-const Experience = ({ projects }) => {
+const Experience = ({ projects: projs }) => {
+  const { colorMode } = useContext(ThemeContext);
   let content;
+
+  const projects = projs.map((proj) => {
+    const project = { ...proj };
+
+    if (project?.github_url === 'null') project.github_url = null;
+    if (project?.live_url === 'null') project.live_url = null;
+    project.tags = JSON.parse(project.tags);
+
+    return project;
+  });
 
   if (projects.length) {
     content = (
@@ -60,14 +75,16 @@ const Experience = ({ projects }) => {
                 </ExpItemText>
                 <TagList>
                   {item.tags.map((tag) => (
-                    <Tag key={randomId()}>{tag}</Tag>
+                    <Tag key={randomId()} theme={colorMode}>
+                      {tag}
+                    </Tag>
                   ))}
                 </TagList>
               </ExpLeft>
               <ExpRight>
                 <ExpCard>
                   <ExpCardInner>
-                    <ExpCardFront>
+                    <ExpCardFront theme={colorMode}>
                       <Screencap>
                         <Image
                           src={item.image_url}
@@ -78,8 +95,11 @@ const Experience = ({ projects }) => {
                           objectPosition="50% 50%"
                         />
                       </Screencap>
+                      <FlipArrow>
+                        <FontAwesomeIcon icon={faArrowDown} />
+                      </FlipArrow>
                     </ExpCardFront>
-                    <ExpCardBack>
+                    <ExpCardBack theme={colorMode}>
                       {item?.github_url && (
                         <Link passHref href={item.github_url}>
                           <ExpCardLink
@@ -148,12 +168,15 @@ export const getStaticProps = async () => {
   try {
     await connectMongo();
 
-    const projects = await Project.find({}).sort({ position: 1 });
+    const result = await Project.find({}, null, { sort: { position: 1 } });
+    const projects = result.map((doc) => {
+      const project = doc.toObject();
+      // eslint-disable-next-line no-underscore-dangle
+      project._id = project._id.toString();
+      return project;
+    });
 
-    return {
-      props: { projects: JSON.parse(JSON.stringify(projects)) },
-      revalidate: 10080,
-    };
+    return { props: { projects }, revalidate: 10080 };
   } catch (error) {
     return { notFound: true };
   }

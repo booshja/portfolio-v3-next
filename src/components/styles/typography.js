@@ -9,13 +9,13 @@ const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
 
 /** Text *********************************************** */
 const LoadingText = styled.p`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 3rem;
   margin-top: 2rem;
 `;
 
 const CopyrightText = styled.p`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 1rem;
   position: absolute;
   bottom: 1rem;
@@ -25,7 +25,7 @@ const CopyrightText = styled.p`
 `;
 
 const FollowMe = styled.p`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 2rem;
   transform: rotate(-90deg);
   width: 100px;
@@ -36,14 +36,14 @@ const FollowMe = styled.p`
 const BaseLink = styled.a`
   font-family: Poppins, sans-serif;
   font-weight: 700;
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
 
   &:hover {
     filter: brightness(60%);
   }
 
   &:focus-visible {
-    outline: 1px solid ${({ theme: t }) => t.textSecondary};
+    outline: 1px solid var(--color-text-secondary);
   }
 `;
 
@@ -62,7 +62,7 @@ const StyledNavLink = styled.a`
   font-size: 1.8rem;
   font-weight: 400;
   text-decoration: none;
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   transition: border-bottom ease-in-out 0.1s;
 
   &.active {
@@ -75,13 +75,13 @@ const StyledNavLink = styled.a`
   }
 
   &:focus-visible {
-    outline: 1px solid ${({ theme: t }) => t.textSecondary};
+    outline: 1px solid var(--color-text-secondary);
   }
 `;
 
 /** Headers ******************************************** */
 const ResultText = styled.h2`
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   font-size: 3rem;
   margin: 2rem 0;
 `;

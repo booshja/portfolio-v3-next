@@ -21,7 +21,7 @@ const HeaderContainer = styled.header`
   width: 100%;
   padding: 0 2rem;
   background-color: transparent;
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   z-index: 100;
 
   ${breakpoints('padding', '', [{ [desktopLg]: '0 3rem 0 3rem' }])}
@@ -59,14 +59,14 @@ const SocialsContainer = styled.aside`
   a {
     font-size: 2.4rem;
     margin-bottom: 2rem;
-    color: ${({ theme: t }) => t.textPrimary};
+    color: var(--color-text-primary);
 
     &:hover {
       filter: brightness(90%);
     }
 
     &:focus-visible {
-      outline: 1px solid ${({ theme: t }) => t.textSecondary};
+      outline: 1px solid var(--color-text-secondary);
     }
   }
 `;
@@ -75,7 +75,7 @@ const SpinnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: ${(p) => (p.size ? `${p.size}rem` : '10rem')};
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   align-items: center;
 `;
 
@@ -87,7 +87,7 @@ const WebsiteNameContainer = styled.div`
 const VerticalAccentDiv = styled.div`
   width: 2px;
   height: 200px;
-  background-color: ${({ theme: t }) => t.accent};
+  background-color: var(--color-accent);
   margin-bottom: 2rem;
 `;
 

@@ -33,7 +33,7 @@ import MailBoxes from '../../../public/images/po-boxes.jpeg';
 import sendEmail from '../../services/emailService';
 
 const ContactContainer = styled(PageContainer)`
-  background-color: ${({ theme: t }) => t.bgSecondary};
+  background-color: var(--color-bg-secondary);
 `;
 
 const RightSide = styled(Right)`

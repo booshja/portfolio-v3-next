@@ -5,6 +5,7 @@ import LoadingSpinner from './LoadingSpinner';
 import PublicLayout from './PublicLayout';
 import Result from './Result';
 import Socials from './Socials';
+import ThemeToggle from './ThemeToggle';
 
 export {
   Copyright,
@@ -14,4 +15,5 @@ export {
   PublicLayout,
   Result,
   Socials,
+  ThemeToggle,
 };
