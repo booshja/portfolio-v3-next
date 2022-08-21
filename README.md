@@ -1,86 +1,79 @@
-# portfolio-v3 (jacobandes.dev)
+# **portfolio-v3** (jacobandes.dev)
 
 The Next.js React App for jacobandes.dev, my personal portfolio.
 
-## Features
+## Table of Contents
 
-- Features
-- Features
-- Features
+- [API Reference](#api-reference)
+- [Running Tests](#running-tests)
+- [Tech Stack](#tech-stack)
+- [Feedback](#feedback)
+- [Author](#author)
 
-## Environment Variables
+<hr/>
 
-To run this project, you will need to add the following environment variables to your .env file
+## **API Reference**
 
-`API_KEY`
+API Route Reference can be [found here](docs/server/api-webhooks-reference.md)
 
-`ANOTHER_API_KEY`
+<hr/>
 
-## Run Locally
+## **Running Tests**
 
-Clone the project
+### To run tests navigate to the root directory and run these commands to...
 
-```bash
-  git clone https://link-to-project
+Run individual test suites in the Cypress GUI:
+
+```zsh
+% npm run test:open
 ```
 
-Go to the project directory
+Run all tests in Headless mode:
 
-```bash
-  cd my-project
+```zsh
+% npm run test
 ```
 
-Install dependencies
+<hr/>
 
-```bash
-  npm install
-```
+## **Tech Stack**
 
-Start the server
+### **Client:**
 
-```bash
-  npm run start
-```
+React, Next, Redux ToolKit, styled-components
 
-## Running Tests
+### **Server:**
 
-To run tests, run the following command
+Mongoose
 
-```bash
-  npm run test
-```
+### **Database:**
 
-## Color Reference
+MongoDB
 
-| Color         | Hex                                                              |
-| ------------- | ---------------------------------------------------------------- |
-| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
-| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
-| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
-| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+<!-- ### **Authentication/Authorization:**
 
-## Deployment
+auth0 -->
 
-To deploy this project run
+<!-- ### **Testing:**
 
-```bash
-  npm run deploy
-```
+Cypress, start-server-and-test -->
 
-## Screenshots
+<hr/>
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+## **Support**
 
-## Tech Stack
+For support, please take a long slow breath and try again.
 
-**Client:** React, Redux, styled-components
+<hr/>
 
-**Deployment:** Cloudflare Pages
+## **Authors**
 
-## Feedback / Support
+- [Jacob Andes - @booshja](https://www.github.com/booshja)
 
-For support, email [admin@jacobandes.dev](mailto:admin@jacobandes.dev).
+## Feedback
 
-## Authors
+For feedback, email [admin@jacobandes.dev](mailto:admin@jacobandes.dev) or submit the contact form on the website.
+
+## Author
 
 - [@booshja](https://www.github.com/booshja)

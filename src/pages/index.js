@@ -26,9 +26,9 @@ const Is = () => (
     </Head>
     <PublicLayout>
       <IsPageContainer>
-        <MyName>Jacob Andes</MyName>
-        <LandingDivider />
-        <MyTitle>Software Engineer</MyTitle>
+        <MyName className="slide-in-left">Jacob Andes</MyName>
+        <LandingDivider className="slide-in-left" />
+        <MyTitle className="slide-in-left">Software Engineer</MyTitle>
       </IsPageContainer>
     </PublicLayout>
   </>
