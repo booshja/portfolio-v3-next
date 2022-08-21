@@ -41,8 +41,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@redux-devtools/extension": "^3.2.3",
     "@reduxjs/toolkit": "^1.8.2",
-    "@sentry/nextjs": "^7.4.1",
+    "@sentry/nextjs": "^7.11.1",
     "cookie": "^0.5.0",
     "mongodb": "^4.7.0",
     "mongoose": "^6.4.0",
@@ -54,7 +55,6 @@
     "react-google-recaptcha": "^2.1.0",
     "react-hook-form": "^7.32.2",
     "react-redux": "^8.0.2",
-    "redux-devtools-extension": "^2.13.9",
     "styled-components": "^5.3.5",
     "uuid": "^8.3.2"
   },
