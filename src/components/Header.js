@@ -1,26 +1,17 @@
 // dependencies
 import React from 'react';
-import { useTheme } from 'styled-components';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
-// assets
-import { faMountain } from '@fortawesome/free-solid-svg-icons';
 // components
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ThemeToggle from './ThemeToggle';
 import {
   HeaderContainer,
   Nav,
   WebsiteNameContainer,
 } from './styles/containers';
 import { WebsiteName, StyledNavLink } from './styles/typography';
-import { NavButton } from './styles/buttons';
-// state
-import { setNextTheme } from '../redux/slices/themeSlice';
 
 const Header = ({ notFound }) => {
-  const dispatch = useDispatch();
-  const theme = useTheme();
   const router = useRouter();
 
   const makeBreadcrumbs = (pathname) => {
@@ -61,13 +52,17 @@ const Header = ({ notFound }) => {
         <Link href="/contact" passHref>
           <StyledNavLink>.contact()</StyledNavLink>
         </Link>
+        <StyledNavLink
+          href="https://importfrom.blog"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          .blog()
+        </StyledNavLink>
         {/* <Link href="/store" passHref>
           <StyledNavLink href="/store">.store()</StyledNavLink>
         </Link> */}
-        <NavButton onClick={() => dispatch(setNextTheme())}>
-          <FontAwesomeIcon icon={faMountain} fontSize="inherit" />
-          {` ${theme.themeName}`}
-        </NavButton>
+        <ThemeToggle />
       </Nav>
     </HeaderContainer>
   );

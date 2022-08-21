@@ -16,10 +16,10 @@ import { Header, Socials, Copyright } from '../../components';
 // assets
 import SadIceCream from '../../../public/images/sad-ice-cream.jpeg';
 // state
-import { selectTheme } from '../../redux/slices/themeSlice';
+import { selectColorMode } from '../../redux/slices/themeSlice';
 
 const NotFoundContainer = styled(PageContainer)`
-  background-color: ${({ theme: t }) => t.bgSecondary};
+  background-color: var(--color-bg-secondary);
   min-height: 100vh;
   ${({ wp }) => (wp ? 'display: flex' : null)};
   ${({ wp }) => (wp ? 'align-items: center' : null)};
@@ -34,44 +34,40 @@ const NotFoundContent = styled(MainContent)`
   position: relative;
 `;
 
-const NotFound = () => {
-  const currentTheme = useSelector(selectTheme);
-
-  return (
-    <ThemeProvider theme={currentTheme}>
-      <Head>
-        <title>Uh oh...</title>
-        <meta name="description" content="Not Found" />
-        <meta name="robots" content="noindex, follow" />
-      </Head>
-      <Header notFound />
-      <Socials />
-      <Copyright />
-      <NotFoundContainer>
-        <PageTitle>notFound()</PageTitle>
-        <NotFoundContent>
-          <NotFoundText>Uh oh, couldn&apos;t find that&hellip;</NotFoundText>
-          <NotFoundText>
-            Click&nbsp;
-            <Link href="/" passHref>
-              <NotFoundLink>here</NotFoundLink>
-            </Link>
-            &nbsp;to go back home.
-          </NotFoundText>
-          <NotFoundImg>
-            <Image
-              src={SadIceCream}
-              alt="Ice cream dropped on a stone slab"
-              layout="fill"
-              priority
-              objectFit="contain"
-              objectPosition="50% bottom"
-            />
-          </NotFoundImg>
-        </NotFoundContent>
-      </NotFoundContainer>
-    </ThemeProvider>
-  );
-};
+const NotFound = () => (
+  <>
+    <Head>
+      <title>Uh oh...</title>
+      <meta name="description" content="Not Found" />
+      <meta name="robots" content="noindex, follow" />
+    </Head>
+    <Header notFound />
+    <Socials />
+    <Copyright />
+    <NotFoundContainer>
+      <PageTitle>notFound()</PageTitle>
+      <NotFoundContent>
+        <NotFoundText>Uh oh, couldn&apos;t find that&hellip;</NotFoundText>
+        <NotFoundText>
+          Click&nbsp;
+          <Link href="/" passHref>
+            <NotFoundLink>here</NotFoundLink>
+          </Link>
+          &nbsp;to go back home.
+        </NotFoundText>
+        <NotFoundImg>
+          <Image
+            src={SadIceCream}
+            alt="Ice cream dropped on a stone slab"
+            layout="fill"
+            priority
+            objectFit="contain"
+            objectPosition="50% bottom"
+          />
+        </NotFoundImg>
+      </NotFoundContent>
+    </NotFoundContainer>
+  </>
+);
 
 export default NotFound;

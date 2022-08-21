@@ -1,11 +1,13 @@
 {
   "skills": [
+    "Google",
     "JavaScript / Node.js",
     "React.js",
     "Next.js",
     "Redux ToolKit",
     "RTK Query",
     "styled-components",
+    "Emotion",
     "Font Awesome (SVG)",
     "Express.js",
     "MongoDB",
@@ -22,11 +24,11 @@
     "Docker",
     "Heroku",
     "Vercel",
-    "Cloudflare Pages",
     "Surge.sh",
     "Git",
     "GitHub",
     "Figma",
-    "ClickUp"
+    "ClickUp",
+    "Notion"
   ]
 }

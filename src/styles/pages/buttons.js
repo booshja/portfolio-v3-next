@@ -6,13 +6,13 @@ const FormSubmitBtn = styled.button`
   background-color: #68a2b9;
   border-radius: 4px;
   border: 2px solid #68a2b9;
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
   transition: background-color 400ms;
   padding: 5px 10px;
   font-size: 2rem;
 
   &:hover {
-    background-color: ${({ theme: t }) => t.bgSecondary};
+    background-color: var(--color-bg-secondary);
     cursor: pointer;
   }
 `;

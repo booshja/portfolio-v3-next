@@ -5,13 +5,14 @@ import styled from 'styled-components';
 const NavButton = styled.button`
   font-size: 1.8rem;
   background-color: transparent;
-  color: ${({ theme: t }) => t.textPrimary};
+  color: var(--color-text-primary);
+  text-transform: lowercase;
   border: none;
   margin-left: 0.75rem;
   display: flex;
 
   svg {
-    color: ${({ theme: t }) => t.textPrimary};
+    color: var(--color-text-primary);
   }
 
   &:hover {
@@ -19,7 +20,7 @@ const NavButton = styled.button`
   }
 
   &:focus-visible {
-    outline: 1px solid ${({ theme: t }) => t.textSecondary};
+    outline: 1px solid var(--color-text-secondary);
   }
 `;
 

@@ -13,7 +13,7 @@ const darkTheme = {
 const lightTheme = {
   bgPrimary: '#ffffff',
   bgSecondary: '#ffffff',
-  bgCard: '99B9D9',
+  bgCard: '#99B9D9',
   accent: '#99b9d9',
   textPrimary: '#000000',
   textSecondary: '#000000',

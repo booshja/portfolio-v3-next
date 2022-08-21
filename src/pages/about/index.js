@@ -10,7 +10,7 @@ import { PublicLayout } from '../../components';
 import {
   PageContainer,
   MainContent,
-  LeftSide,
+  LeftSide as Left,
   RightSide as Right,
 } from '../../styles/pages/containers';
 import {
@@ -29,13 +29,18 @@ import Headshot from '../../../public/images/headshot.jpg';
 import data from '../../utils/skills.json';
 
 const AboutContainer = styled(PageContainer)`
-  background-color: ${({ theme: t }) => t.bgPrimary};
+  background-color: var(--color-bg-primary);
 `;
 
 const RightSide = styled(Right)`
   width: 50%;
   margin-bottom: 5rem;
-  padding-top: 10rem;
+  padding-top: 8rem;
+`;
+
+const LeftSide = styled(Left)`
+  width: 70%;
+  height: 40%;
 `;
 
 const SkillsSection = styled.section`
@@ -56,16 +61,16 @@ const About = () => (
       <AboutContainer>
         <PageTitle>about()</PageTitle>
         <MainContent className="slide-in-left">
-          <LeftSide width="70%">
+          <LeftSide>
             <section>
               <StoryGreeting>
                 <Hi>Hi! </Hi>
                 I&apos;m Jacob!
               </StoryGreeting>
               <StoryText>
-                I&apos;m a Full Stack Software Engineer from Seattle, WA.
-                I&apos;m currently building the future of medical supply
-                with&nbsp;
+                I&apos;m a Software Engineer from Seattle, WA with experience
+                across the stack, but focusing on the Front End. I&apos;m
+                currently building the future of medical supply with&nbsp;
                 <StoryLink
                   href="https://bttnusa.com"
                   target="_blank"
@@ -105,10 +110,10 @@ const About = () => (
             <Image
               src={Headshot}
               alt="Jacob smiling in front of an abstact, brightly colored cloud mural by Painting Joy Mural Co."
-              layout="fill"
+              layout="intrinsic"
               priority
-              objectFit="contain"
-              objectPosition="50% 35%"
+              height={942}
+              width={827}
             />
           </RightSide>
         </MainContent>
