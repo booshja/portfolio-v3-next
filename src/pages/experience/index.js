@@ -4,7 +4,7 @@ import { v4 as randomId } from 'uuid';
 import styled from 'styled-components';
 // assets
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faLaptop } from '@fortawesome/free-solid-svg-icons';
+import { faLaptop, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 // components
 import Head from 'next/head';
 import Image from 'next/image';
@@ -20,6 +20,7 @@ import {
   ExpCardBack,
   ExpCardFront,
   ExpCardInner,
+  FlipArrow,
 } from '../../styles/pages/containers';
 import { Screencap } from '../../styles/pages/media';
 import {
@@ -94,6 +95,9 @@ const Experience = ({ projects: projs }) => {
                           objectPosition="50% 50%"
                         />
                       </Screencap>
+                      <FlipArrow>
+                        <FontAwesomeIcon icon={faArrowDown} />
+                      </FlipArrow>
                     </ExpCardFront>
                     <ExpCardBack theme={colorMode}>
                       {item?.github_url && (

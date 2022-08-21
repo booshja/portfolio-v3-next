@@ -6,7 +6,7 @@ const NavButton = styled.button`
   font-size: 1.8rem;
   background-color: transparent;
   color: var(--color-text-primary);
-  text-transform: capitalize;
+  text-transform: lowercase;
   border: none;
   margin-left: 0.75rem;
   display: flex;

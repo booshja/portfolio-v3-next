@@ -49,12 +49,16 @@ const Header = ({ notFound }) => {
         <Link href="/about" passHref>
           <StyledNavLink>.about()</StyledNavLink>
         </Link>
-        <StyledNavLink href="https://blog.jacobandes.dev">
-          .blog()
-        </StyledNavLink>
         <Link href="/contact" passHref>
           <StyledNavLink>.contact()</StyledNavLink>
         </Link>
+        <StyledNavLink
+          href="https://importfrom.blog"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          .blog()
+        </StyledNavLink>
         {/* <Link href="/store" passHref>
           <StyledNavLink href="/store">.store()</StyledNavLink>
         </Link> */}

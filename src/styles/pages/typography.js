@@ -163,9 +163,9 @@ const SkillsList = styled.ul`
   padding-left: 2rem;
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 2rem;
 `;
 
 const Skill = styled.li`

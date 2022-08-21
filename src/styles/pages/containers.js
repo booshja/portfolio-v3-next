@@ -18,7 +18,6 @@ const PageContainer = styled.main`
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  /* height: 100%; */
   margin-top: -60px;
   padding: 8rem 10rem 0 10rem;
 `;
@@ -119,6 +118,18 @@ const RightSide = styled.figure`
   height: 100%;
 `;
 
+const FlipArrow = styled.div`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+  transform: rotate(-45deg);
+  font-size: 2rem;
+  color: var(--color-text-primary);
+`;
+
 /** Dividers ******************************************* */
 const LandingDivider = styled.div`
   width: 70%;
@@ -145,6 +156,7 @@ export {
   ExpCardInner,
   ExpLeft,
   ExpRight,
+  FlipArrow,
   FormError,
   LandingDivider,
   LeftSide,

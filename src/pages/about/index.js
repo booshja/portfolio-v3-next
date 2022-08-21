@@ -10,7 +10,7 @@ import { PublicLayout } from '../../components';
 import {
   PageContainer,
   MainContent,
-  LeftSide,
+  LeftSide as Left,
   RightSide as Right,
 } from '../../styles/pages/containers';
 import {
@@ -35,7 +35,12 @@ const AboutContainer = styled(PageContainer)`
 const RightSide = styled(Right)`
   width: 50%;
   margin-bottom: 5rem;
-  padding-top: 10rem;
+  padding-top: 8rem;
+`;
+
+const LeftSide = styled(Left)`
+  width: 70%;
+  height: 40%;
 `;
 
 const SkillsSection = styled.section`
@@ -56,7 +61,7 @@ const About = () => (
       <AboutContainer>
         <PageTitle>about()</PageTitle>
         <MainContent className="slide-in-left">
-          <LeftSide width="70%">
+          <LeftSide>
             <section>
               <StoryGreeting>
                 <Hi>Hi! </Hi>
@@ -105,10 +110,10 @@ const About = () => (
             <Image
               src={Headshot}
               alt="Jacob smiling in front of an abstact, brightly colored cloud mural by Painting Joy Mural Co."
-              layout="fill"
+              layout="intrinsic"
               priority
-              objectFit="contain"
-              objectPosition="50% 35%"
+              height={942}
+              width={827}
             />
           </RightSide>
         </MainContent>
