@@ -121,10 +121,12 @@ const ReCAPTCHAText = styled.p`
 `;
 
 const NotFoundText = styled.p`
-  font-size: 3rem;
+  font-size: 2.4rem;
   margin-bottom: 2rem;
   color: var(--color-text-primary);
   margin: 2rem 0 1rem 2rem;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 3 }])};
 `;
 
 /** Lists ********************************************** */
@@ -248,10 +250,12 @@ const ReCAPTCHALink = styled.a`
 `;
 
 const NotFoundLink = styled.a`
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 700;
   text-decoration: underline;
   color: var(--color-text-secondary);
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 3 }])};
 
   &:hover {
     filter: brightness(80%);

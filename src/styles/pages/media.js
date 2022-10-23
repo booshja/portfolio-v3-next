@@ -1,11 +1,24 @@
 // dependencies
 import styled from 'styled-components';
+import { breakpoints, breakpointValues } from '../breakpoints';
+
+// eslint-disable-next-line operator-linebreak
+const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
+  breakpointValues;
 
 /** Images ********************************************* */
 const NotFoundImg = styled.div`
   position: relative;
-  height: 80%;
+  height: 300px;
   width: 100%;
+
+  ${breakpoints('height', '', [
+    { [tabletSm]: '400px' },
+    { [tabletLg]: '500px' },
+    { [desktopSm]: '600px' },
+    { [desktopSm]: '700px' },
+  ])};
+  ${breakpoints('width', 'px', [{ [desktopLg]: 1240 }])};
 `;
 
 const BugsNoImg = styled.div`
