@@ -9,7 +9,7 @@ import Image from 'next/image';
 import {
   PageContainer,
   MainContent,
-  LeftSide,
+  LeftSide as Left,
   FormError,
   RightSide as Right,
 } from '../../styles/pages/containers';
@@ -29,17 +29,33 @@ import {
 // assets
 import MailBoxes from '../../../public/images/po-boxes.jpeg';
 // services
-// import { useAddNewMessageMutation } from '../../services/booshjaAPI';
 import sendEmail from '../../services/emailService';
+// css
+import { breakpoints, breakpointValues } from '../../styles/breakpoints';
+
+const { mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } = breakpointValues;
 
 const ContactContainer = styled(PageContainer)`
   background-color: var(--color-bg-secondary);
 `;
 
+const LeftSide = styled(Left)`
+  width: 90%;
+  max-width: 785px;
+
+  ${breakpoints('width', '', [{ [tabletLg]: '60%' }])};
+`;
+
 const RightSide = styled(Right)`
-  height: 75vh;
+  display: none;
+  /* height: 75vh; */
   width: 40%;
-  margin-left: 8rem;
+  margin-left: 4rem;
+  max-width: 525px;
+
+  ${breakpoints('display', '', [{ [tabletLg]: 'initial' }])};
+  ${breakpoints('margin-left', 'rem', [{ [desktopSm]: 8 }])};
+  /* ${breakpoints('width', '', [{ [tabletSm]: '60%' }])}; */
 `;
 
 const Contact = () => {
@@ -177,10 +193,8 @@ const Contact = () => {
               <Image
                 src={MailBoxes}
                 alt="Wall of blue P.O. Boxes."
-                layout="fill"
+                layout="responsive"
                 priority
-                objectFit="contain"
-                objectPosition="50% bottom"
               />
             </MailImg>
           </RightSide>
