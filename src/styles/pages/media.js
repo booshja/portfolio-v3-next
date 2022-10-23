@@ -22,11 +22,16 @@ const NotFoundImg = styled.div`
 `;
 
 const BugsNoImg = styled.div`
-  width: 50%;
   margin-bottom: 4rem;
-  height: 80%;
+  height: 80vw;
   width: 100%;
   position: relative;
+
+  ${breakpoints('height', '', [
+    { [tabletLg]: '75vw' },
+    { [desktopSm]: '70vw' },
+    { [desktopLg]: '875px' },
+  ])};
 `;
 const MailImg = styled.div`
   width: 100%;
