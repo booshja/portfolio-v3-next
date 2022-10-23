@@ -1,7 +1,11 @@
 // dependencies
 import { createGlobalStyle } from 'styled-components';
 // breakpoints
-// import { breakpoints } from "./breakpoints";
+import { breakpoints, breakpointValues } from './breakpoints';
+
+// eslint-disable-next-line operator-linebreak
+const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
+  breakpointValues;
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -38,6 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 ol, ul, nav {
     list-style: none;
@@ -73,9 +78,12 @@ textarea {
     align-items: center;
 }
 #__next {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  max-width: 100vw;
+
+  ${breakpoints('width', '', [{ [tabletSm]: '100%' }, { [tabletLg]: '100%' }])}
 }
 .grecaptcha-badge { visibility: hidden; }
 .slide-in-left {

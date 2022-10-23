@@ -31,13 +31,17 @@ const PageTitle = styled.h1`
   color: var(--color-text-primary);
   align-self: flex-start;
   justify-self: flex-start;
-  font-size: 4rem;
+  font-size: 3.2rem;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 4 }])};
 `;
 
 const StoryGreeting = styled.h2`
   color: var(--color-text-primary);
-  font-size: 3rem;
+  font-size: 2.6rem;
   margin: 3rem 0 1rem 0;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 3 }])};
 `;
 
 const SkillsHeader = styled.h2`
@@ -87,16 +91,20 @@ const ExpItemText = styled.p`
 const Hi = styled.span`
   color: inherit;
   font-weight: 700;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-family: Poppins, sans-serif;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 2.8 }])}
 `;
 
 const StoryText = styled.p`
   color: var(--color-text-primary);
   font-size: 2rem;
   margin: 1rem 0 1rem 2rem;
-  line-height: 1.5;
+  line-height: 1.75;
   background: transparent;
+
+  ${breakpoints('line-height', '', [{ [tabletSm]: 1.5 }])};
 `;
 
 const ContactText = styled.p`
@@ -164,14 +172,24 @@ const SkillsList = styled.ul`
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 4rem;
+  column-gap: 2rem;
+
+  ${breakpoints('margin-bottom', 'rem', [{ [tabletSm]: 2 }])};
+  ${breakpoints('grid-template-columns', '', [
+    { [tabletSm]: 'repeat(3, 1fr)' },
+  ])};
 `;
 
 const Skill = styled.li`
   color: var(--color-text-primary);
-  font-size: 2rem;
-  margin: 1rem 0;
+  font-size: 1.8rem;
+  margin: 0.75rem 0;
+  line-height: 1.5;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 2 }])};
+  ${breakpoints('margin', '', [{ [tabletSm]: '1rem 0' }])};
 `;
 
 /** Links ********************************************** */

@@ -24,9 +24,9 @@ const breakpoints = (
 };
 
 const breakpointValues = {
-  mobileSm: 360,
-  mobileLg: 428,
-  tabletSm: 744,
+  mobileSm: 375,
+  mobileLg: 414,
+  tabletSm: 768,
   tabletLg: 1024,
   desktopSm: 1280,
   desktopLg: 1440,

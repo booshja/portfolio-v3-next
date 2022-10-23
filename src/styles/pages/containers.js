@@ -19,12 +19,19 @@ const PageContainer = styled.main`
   width: 100%;
   min-height: 100vh;
   margin-top: -60px;
-  padding: 8rem 10rem 0 10rem;
+  padding: 6rem 2rem 0rem 2rem;
+
+  ${breakpoints('padding', '', [{ [tabletSm]: '8rem 10rem 0 10rem' }])}
 `;
 
 const MainContent = styled.div`
   display: flex;
+  flex-direction: column;
+  flex-flow: column-reverse;
   height: calc(100% - 60px);
+
+  ${breakpoints('flex-direction', '', [{ [tabletSm]: 'row' }])};
+  ${breakpoints('flex-flow', '', [{ [tabletSm]: 'row' }])};
 `;
 
 const ExpLeft = styled(ColumnFlex)`

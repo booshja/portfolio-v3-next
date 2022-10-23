@@ -86,10 +86,30 @@ const ResultText = styled.h2`
   margin: 2rem 0;
 `;
 
+const MobileMenuLink = styled.a`
+  color: var(--color-text);
+  font-size: ${({ logo }) => (logo ? '2rem' : '2.6rem')};
+  font-weight: ${({ bold }) => (bold ? 600 : 400)};
+  padding: 1rem;
+  font-family: Poppins, sans-serif;
+
+  &:focus {
+    border: 2px solid var(--color-primary);
+    border-radius: 6px;
+  }
+
+  span {
+    font-size: 2.6rem;
+    margin-left: -0.4rem;
+    font-style: initial;
+  }
+`;
+
 export {
   CopyrightText,
   FollowMe,
   LoadingText,
+  MobileMenuLink,
   ResultLink,
   ResultText,
   StyledNavLink,
