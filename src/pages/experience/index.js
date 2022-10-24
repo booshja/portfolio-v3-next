@@ -41,9 +41,7 @@ import Project from '../../models/projectModel';
 // styling
 import { breakpointValues, breakpoints } from '../../styles/breakpoints';
 
-// eslint-disable-next-line operator-linebreak
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { tabletLg } = breakpointValues;
 
 const ExpContainer = styled(PageContainer)`
   background-color: var(--color-bg-secondary);
