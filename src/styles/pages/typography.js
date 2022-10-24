@@ -163,8 +163,8 @@ const TagList = styled.ul`
 
 const Tag = styled.li`
   border-radius: 15px;
-  background-color: var(--color-bg-card);
-  color: var(--color-bg-primary);
+  background-color: var(--color-bg-primary);
+  color: var(--color-bg-card);
   ${({ theme }) => theme === 'light' && 'color: var(--color-text-primary)'};
   border: ${({ theme }) =>
     theme === 'light' ? `2px solid var(--color-text-primary)` : 'none'};
