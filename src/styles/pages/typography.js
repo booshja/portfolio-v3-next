@@ -53,10 +53,12 @@ const SkillsHeader = styled.h2`
 
 const ExpItemName = styled.h3`
   color: var(--color-text-primary);
-  font-size: 3.5rem;
+  font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 1rem;
   margin-left: -1rem;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 3.5 }])};
 `;
 
 /** Text *********************************************** */
@@ -77,7 +79,7 @@ const MyTitle = styled.p`
 
 const ExpItemText = styled.p`
   color: var(--color-text-primary);
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1.5;
   margin-bottom: 1rem;
 
@@ -86,6 +88,8 @@ const ExpItemText = styled.p`
     font-style: italic;
     font-weight: 700;
   }
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 2 }])};
 `;
 
 const Hi = styled.span`
@@ -133,6 +137,7 @@ const NotFoundText = styled.p`
 const ExpList = styled.ul`
   color: var(--color-text-primary);
   padding: 2rem 0 3rem 3rem;
+  max-width: 1220px;
 `;
 
 const ExpItem = styled.li`
@@ -140,8 +145,10 @@ const ExpItem = styled.li`
   font-size: 1.8rem;
   margin-bottom: 3rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   min-height: 300px;
+
+  ${breakpoints('flex-direction', '', [{ [tabletSm]: 'row' }])};
 `;
 
 const TagList = styled.ul`
@@ -150,8 +157,10 @@ const TagList = styled.ul`
   justify-content: center;
   align-self: center;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   margin-top: 1rem;
+
+  ${breakpoints('width', '', [{ [tabletSm]: '90%' }])};
 `;
 
 const Tag = styled.li`
@@ -164,9 +173,11 @@ const Tag = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   padding: 0.75rem 1.5rem;
   margin: 0 2rem 2rem 0;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 1.8 }])};
 `;
 
 const SkillsList = styled.ul`

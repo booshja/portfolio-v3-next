@@ -2,8 +2,7 @@
 // dependencies
 import styled from 'styled-components';
 import { breakpoints, breakpointValues } from '../../styles/breakpoints';
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { tabletSm } = breakpointValues;
 
 const NavButton = styled.button`
   font-size: 2.6rem;

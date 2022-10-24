@@ -33,10 +33,12 @@ import sendEmail from '../../services/emailService';
 // css
 import { breakpoints, breakpointValues } from '../../styles/breakpoints';
 
-const { mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } = breakpointValues;
+const { tabletLg, desktopSm, desktopLg } = breakpointValues;
 
 const ContactContainer = styled(PageContainer)`
   background-color: var(--color-bg-secondary);
+
+  ${breakpoints('align-items', '', [{ [desktopLg]: 'center' }])};
 `;
 
 const LeftSide = styled(Left)`
@@ -48,14 +50,12 @@ const LeftSide = styled(Left)`
 
 const RightSide = styled(Right)`
   display: none;
-  /* height: 75vh; */
   width: 40%;
   margin-left: 4rem;
   max-width: 525px;
 
   ${breakpoints('display', '', [{ [tabletLg]: 'initial' }])};
   ${breakpoints('margin-left', 'rem', [{ [desktopSm]: 8 }])};
-  /* ${breakpoints('width', '', [{ [tabletSm]: '60%' }])}; */
 `;
 
 const Contact = () => {

@@ -21,7 +21,8 @@ const PageContainer = styled.main`
   margin-top: -60px;
   padding: 6rem 2rem 0rem 2rem;
 
-  ${breakpoints('padding', '', [{ [tabletSm]: '8rem 10rem 0 10rem' }])}
+  ${breakpoints('padding', '', [{ [tabletSm]: '8rem 10rem 0 10rem' }])};
+  ${breakpoints('align-items', '', [{ [desktopLg]: 'center' }])};
 `;
 
 const MainContent = styled.div`
@@ -32,15 +33,20 @@ const MainContent = styled.div`
 
   ${breakpoints('flex-direction', '', [{ [tabletSm]: 'row' }])};
   ${breakpoints('flex-flow', '', [{ [tabletSm]: 'row' }])};
+  ${breakpoints('width', '', [{ [desktopLg]: '100%' }])};
 `;
 
 const ExpLeft = styled(ColumnFlex)`
-  width: 70%;
+  width: 90%;
+
+  ${breakpoints('width', '', [{ [tabletSm]: '60%' }])};
 `;
 
 const ExpRight = styled.div`
   display: flex;
-  width: 30%;
+  width: 90%;
+
+  ${breakpoints('width', '', [{ [tabletSm]: '30%' }])};
 `;
 
 const ExpCardInner = styled.div`
@@ -50,9 +56,11 @@ const ExpCardInner = styled.div`
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  margin-left: 2rem;
+  margin-left: 0;
   display: flex;
   justify-content: center;
+
+  ${breakpoints('margin-left', 'rem', [{ [tabletSm]: 2 }])};
 `;
 
 const ExpCard = styled.div`
@@ -60,7 +68,9 @@ const ExpCard = styled.div`
   width: 400px;
   height: 300px;
   perspective: 1000px;
-  margin-left: 2rem;
+  margin-left: 0;
+
+  ${breakpoints('margin-left', 'rem', [{ [tabletSm]: 2 }])};
 
   &:hover ${ExpCardInner} {
     transform: rotateY(180deg);

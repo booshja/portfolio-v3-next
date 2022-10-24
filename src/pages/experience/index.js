@@ -50,7 +50,8 @@ const ExpContainer = styled(PageContainer)`
   height: 100%;
   min-height: 100vh;
   min-width: 100%;
-  ${breakpoints('padding-left', 'rem', [{ [tabletSm]: 12 }])}
+  width: 100%;
+  ${breakpoints('padding-left', 'rem', [{ [tabletLg]: 12 }])}
 `;
 
 const Experience = ({ projects: projs }) => {
