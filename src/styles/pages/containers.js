@@ -2,9 +2,7 @@
 import styled from 'styled-components';
 import { breakpoints, breakpointValues } from '../breakpoints';
 
-// eslint-disable-next-line
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { tabletSm, tabletLg, desktopLg } = breakpointValues;
 
 /** Generics ******************************************* */
 const ColumnFlex = styled.div`

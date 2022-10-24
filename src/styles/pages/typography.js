@@ -2,9 +2,7 @@
 import styled from 'styled-components';
 import { breakpoints, breakpointValues } from '../breakpoints';
 
-// eslint-disable-next-line
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } = breakpointValues;
 
 /** Headers ******************************************** */
 const MyName = styled.h1`

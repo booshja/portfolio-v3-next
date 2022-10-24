@@ -3,9 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 // breakpoints
 import { breakpoints, breakpointValues } from './breakpoints';
 
-// eslint-disable-next-line operator-linebreak
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { tabletSm, tabletLg } = breakpointValues;
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre,

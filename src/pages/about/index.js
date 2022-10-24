@@ -28,7 +28,7 @@ import Headshot from '../../../public/images/headshot.jpg';
 import data from '../../utils/skills.json';
 import { breakpoints, breakpointValues } from '../../styles/breakpoints';
 
-const { mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } = breakpointValues;
+const { tabletSm, tabletLg } = breakpointValues;
 
 const AboutContainer = styled(PageContainer)`
   background-color: var(--color-bg-primary);
