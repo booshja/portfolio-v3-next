@@ -8,19 +8,19 @@ const COLORS = {
   'bg-secondary': {
     dark: '#001628',
     light: '#ffffff',
-    soft: '#9effb8',
+    soft: '#4e6e58',
     sharp: '#7e4e60',
   },
   'bg-card': {
     dark: '#99d9d9',
     light: '#99b9d9',
-    soft: '#f7c9c0',
+    soft: '#f4ebd9',
     sharp: '#ffb81c',
   },
   accent: {
     dark: '#e9072b',
     light: '#99b9d9',
-    soft: '#e9f259',
+    soft: '#544B3D',
     sharp: '#ffb81c',
   },
   'text-primary': {
@@ -32,7 +32,7 @@ const COLORS = {
   'text-secondary': {
     dark: '#99d9d9',
     light: '#000000',
-    soft: '#f7c9c0',
+    soft: '#4e6e58',
     sharp: '#8baaad',
   },
   'text-card': {

@@ -41,16 +41,15 @@ import Project from '../../models/projectModel';
 // styling
 import { breakpointValues, breakpoints } from '../../styles/breakpoints';
 
-// eslint-disable-next-line operator-linebreak
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { tabletLg } = breakpointValues;
 
 const ExpContainer = styled(PageContainer)`
   background-color: var(--color-bg-secondary);
   height: 100%;
   min-height: 100vh;
   min-width: 100%;
-  ${breakpoints('padding-left', 'rem', [{ [tabletSm]: 12 }])}
+  width: 100%;
+  ${breakpoints('padding-left', 'rem', [{ [tabletLg]: 12 }])}
 `;
 
 const Experience = ({ projects: projs }) => {

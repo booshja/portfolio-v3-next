@@ -1,5 +1,5 @@
 // dependencies
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 // components
 import Image from 'next/image';
@@ -17,12 +17,15 @@ import {
   MobileMenuLink,
 } from './styles/typography';
 import { ClosingXButton, MobileMenuButton } from './styles/buttons';
+// context
+import { ThemeContext } from '../context/themeContext';
 // assets
 import MountainDark from '../../public/images/mountain-dark.svg';
 import MountainLight from '../../public/images/mountain-light.svg';
 
 const Header = ({ notFound }) => {
   const router = useRouter();
+  const { colorMode } = useContext(ThemeContext);
 
   const [open, setOpen] = useState(false);
 
@@ -83,7 +86,7 @@ const Header = ({ notFound }) => {
       </Nav>
       <MobileMenuButton type="button" onClick={handleMenuOpen}>
         <Image
-          src={MountainDark}
+          src={colorMode === 'light' ? MountainLight : MountainDark}
           alt="Mountain icon denoting mobile menu"
           layout="fixed"
           height={30}

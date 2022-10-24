@@ -3,9 +3,7 @@ import styled from 'styled-components';
 // components
 import { breakpoints, breakpointValues } from '../../styles/breakpoints';
 
-// eslint-disable-next-line
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { desktopSm } = breakpointValues;
 
 /** Text *********************************************** */
 const LoadingText = styled.p`

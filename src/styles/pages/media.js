@@ -2,9 +2,7 @@
 import styled from 'styled-components';
 import { breakpoints, breakpointValues } from '../breakpoints';
 
-// eslint-disable-next-line operator-linebreak
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { tabletSm, tabletLg, desktopSm, desktopLg } = breakpointValues;
 
 /** Images ********************************************* */
 const NotFoundImg = styled.div`
