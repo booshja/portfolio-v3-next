@@ -108,26 +108,24 @@ const Experience = ({ projects: projs }) => {
                     </ExpCardFront>
                     <ExpCardBack theme={colorMode}>
                       {item?.github_url && (
-                        <Link passHref href={item.github_url}>
-                          <ExpCardLink
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FontAwesomeIcon icon={faGithub} />
-                            View on GitHub
-                          </ExpCardLink>
-                        </Link>
+                        <ExpCardLink
+                          href={item.github_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faGithub} />
+                          View on GitHub
+                        </ExpCardLink>
                       )}
                       {item?.live_url && (
-                        <Link passHref href={item.live_url}>
-                          <ExpCardLink
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FontAwesomeIcon icon={faLaptop} />
-                            View Live Website
-                          </ExpCardLink>
-                        </Link>
+                        <ExpCardLink
+                          href={item.live_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faLaptop} />
+                          View Live Website
+                        </ExpCardLink>
                       )}
                       {!item?.live_url && !item?.github_url && (
                         <p>No Links Available!</p>

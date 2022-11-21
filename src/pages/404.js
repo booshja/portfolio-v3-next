@@ -47,9 +47,7 @@ const NotFound = () => (
         <NotFoundText>Uh oh, couldn&apos;t find that&hellip;</NotFoundText>
         <NotFoundText>
           Click&nbsp;
-          <Link href="/" passHref>
-            <NotFoundLink>here</NotFoundLink>
-          </Link>
+          <NotFoundLink href="/">here</NotFoundLink>
           &nbsp;to go back home.
         </NotFoundText>
         <NotFoundImg>

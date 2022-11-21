@@ -1,4 +1,5 @@
 // dependencies
+import Link from 'next/link';
 import styled from 'styled-components';
 // components
 import { breakpoints, breakpointValues } from '../../styles/breakpoints';
@@ -45,17 +46,53 @@ const BaseLink = styled.a`
   }
 `;
 
-const WebsiteName = styled(BaseLink)`
+const BaseNextLink = styled(Link)`
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  color: var(--color-text-primary);
+
+  &:hover {
+    filter: brightness(60%);
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--color-text-primary);
+  }
+`;
+
+const WebsiteName = styled(BaseNextLink)`
   font-size: 2rem;
   text-decoration: none;
 `;
 
-const ResultLink = styled(BaseLink)`
+const ResultLink = styled(BaseNextLink)`
   font-size: 3rem;
   text-decoration: underline;
 `;
 
-const StyledNavLink = styled.a`
+const StyledExternalNavLink = styled.a`
+  font-family: Sen, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: border-bottom ease-in-out 0.1s;
+
+  &.active {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--color-text-secondary);
+  }
+`;
+
+const StyledNavLink = styled(Link)`
   font-family: Sen, sans-serif;
   font-size: 1.8rem;
   font-weight: 400;
@@ -84,7 +121,26 @@ const ResultText = styled.h2`
   margin: 2rem 0;
 `;
 
-const MobileMenuLink = styled.a`
+const MobileMenuLink = styled(Link)`
+  color: var(--color-text);
+  font-size: ${({ logo }) => (logo ? '2rem' : '2.6rem')};
+  font-weight: ${({ bold }) => (bold ? 600 : 400)};
+  padding: 1rem;
+  font-family: Poppins, sans-serif;
+
+  &:focus {
+    border: 2px solid var(--color-primary);
+    border-radius: 6px;
+  }
+
+  span {
+    font-size: 2.6rem;
+    margin-left: -0.4rem;
+    font-style: initial;
+  }
+`;
+
+const MobileMenuExternalLink = styled.a`
   color: var(--color-text);
   font-size: ${({ logo }) => (logo ? '2rem' : '2.6rem')};
   font-weight: ${({ bold }) => (bold ? 600 : 400)};
@@ -108,8 +164,10 @@ export {
   FollowMe,
   LoadingText,
   MobileMenuLink,
+  MobileMenuExternalLink,
   ResultLink,
   ResultText,
   StyledNavLink,
+  StyledExternalNavLink,
   WebsiteName,
 };
