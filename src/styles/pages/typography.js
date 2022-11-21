@@ -2,9 +2,7 @@
 import styled from 'styled-components';
 import { breakpoints, breakpointValues } from '../breakpoints';
 
-// eslint-disable-next-line
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } = breakpointValues;
 
 /** Headers ******************************************** */
 const MyName = styled.h1`
@@ -31,13 +29,17 @@ const PageTitle = styled.h1`
   color: var(--color-text-primary);
   align-self: flex-start;
   justify-self: flex-start;
-  font-size: 4rem;
+  font-size: 3.2rem;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 4 }])};
 `;
 
 const StoryGreeting = styled.h2`
   color: var(--color-text-primary);
-  font-size: 3rem;
+  font-size: 2.6rem;
   margin: 3rem 0 1rem 0;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 3 }])};
 `;
 
 const SkillsHeader = styled.h2`
@@ -49,10 +51,12 @@ const SkillsHeader = styled.h2`
 
 const ExpItemName = styled.h3`
   color: var(--color-text-primary);
-  font-size: 3.5rem;
+  font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 1rem;
   margin-left: -1rem;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 3.5 }])};
 `;
 
 /** Text *********************************************** */
@@ -73,7 +77,7 @@ const MyTitle = styled.p`
 
 const ExpItemText = styled.p`
   color: var(--color-text-primary);
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1.5;
   margin-bottom: 1rem;
 
@@ -82,21 +86,27 @@ const ExpItemText = styled.p`
     font-style: italic;
     font-weight: 700;
   }
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 2 }])};
 `;
 
 const Hi = styled.span`
   color: inherit;
   font-weight: 700;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-family: Poppins, sans-serif;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 2.8 }])}
 `;
 
 const StoryText = styled.p`
   color: var(--color-text-primary);
   font-size: 2rem;
   margin: 1rem 0 1rem 2rem;
-  line-height: 1.5;
+  line-height: 1.75;
   background: transparent;
+
+  ${breakpoints('line-height', '', [{ [tabletSm]: 1.5 }])};
 `;
 
 const ContactText = styled.p`
@@ -113,16 +123,19 @@ const ReCAPTCHAText = styled.p`
 `;
 
 const NotFoundText = styled.p`
-  font-size: 3rem;
+  font-size: 2.4rem;
   margin-bottom: 2rem;
   color: var(--color-text-primary);
   margin: 2rem 0 1rem 2rem;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 3 }])};
 `;
 
 /** Lists ********************************************** */
 const ExpList = styled.ul`
   color: var(--color-text-primary);
   padding: 2rem 0 3rem 3rem;
+  max-width: 1220px;
 `;
 
 const ExpItem = styled.li`
@@ -130,8 +143,10 @@ const ExpItem = styled.li`
   font-size: 1.8rem;
   margin-bottom: 3rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   min-height: 300px;
+
+  ${breakpoints('flex-direction', '', [{ [tabletSm]: 'row' }])};
 `;
 
 const TagList = styled.ul`
@@ -140,23 +155,27 @@ const TagList = styled.ul`
   justify-content: center;
   align-self: center;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   margin-top: 1rem;
+
+  ${breakpoints('width', '', [{ [tabletSm]: '90%' }])};
 `;
 
 const Tag = styled.li`
   border-radius: 15px;
-  background-color: var(--color-bg-card);
-  color: var(--color-bg-primary);
+  background-color: var(--color-bg-primary);
+  color: var(--color-bg-card);
   ${({ theme }) => theme === 'light' && 'color: var(--color-text-primary)'};
   border: ${({ theme }) =>
     theme === 'light' ? `2px solid var(--color-text-primary)` : 'none'};
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   padding: 0.75rem 1.5rem;
   margin: 0 2rem 2rem 0;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 1.8 }])};
 `;
 
 const SkillsList = styled.ul`
@@ -164,14 +183,24 @@ const SkillsList = styled.ul`
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 4rem;
+  column-gap: 2rem;
+
+  ${breakpoints('margin-bottom', 'rem', [{ [tabletSm]: 2 }])};
+  ${breakpoints('grid-template-columns', '', [
+    { [tabletSm]: 'repeat(3, 1fr)' },
+  ])};
 `;
 
 const Skill = styled.li`
   color: var(--color-text-primary);
-  font-size: 2rem;
-  margin: 1rem 0;
+  font-size: 1.8rem;
+  margin: 0.75rem 0;
+  line-height: 1.5;
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 2 }])};
+  ${breakpoints('margin', '', [{ [tabletSm]: '1rem 0' }])};
 `;
 
 /** Links ********************************************** */
@@ -230,10 +259,12 @@ const ReCAPTCHALink = styled.a`
 `;
 
 const NotFoundLink = styled.a`
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 700;
   text-decoration: underline;
   color: var(--color-text-secondary);
+
+  ${breakpoints('font-size', 'rem', [{ [tabletSm]: 3 }])};
 
   &:hover {
     filter: brightness(80%);

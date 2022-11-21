@@ -17,7 +17,6 @@ import {
   PageTitle,
   Hi,
   StoryGreeting,
-  StoryLink,
   StoryText,
   SkillsHeader,
   SkillsList,
@@ -27,24 +26,38 @@ import {
 import Headshot from '../../../public/images/headshot.jpg';
 // data
 import data from '../../utils/skills.json';
+import { breakpoints, breakpointValues } from '../../styles/breakpoints';
+
+const { tabletSm, tabletLg } = breakpointValues;
 
 const AboutContainer = styled(PageContainer)`
   background-color: var(--color-bg-primary);
 `;
 
 const RightSide = styled(Right)`
-  width: 50%;
-  margin-bottom: 5rem;
-  padding-top: 8rem;
+  width: 80%;
+  margin-bottom: 0;
+  padding-top: 2rem;
+  max-width: 675px;
+
+  ${breakpoints('padding-top', 'rem', [{ [tabletSm]: 8 }])};
+  ${breakpoints('margin-bottom', 'rem', [{ [tabletSm]: 5 }])};
+  ${breakpoints('width', '%', [{ [tabletSm]: 55 }, { [tabletLg]: 40 }])};
 `;
 
 const LeftSide = styled(Left)`
-  width: 70%;
+  width: 90%;
   height: 40%;
+  max-width: 1025px;
+
+  ${breakpoints('width', '%', [{ [tabletSm]: 45 }, { [tabletLg]: 60 }])};
 `;
 
 const SkillsSection = styled.section`
-  height: 45%;
+  width: 90%;
+
+  ${breakpoints('height', '%', [{ [tabletSm]: 45 }])};
+  ${breakpoints('width', '', [{ [tabletSm]: 'auto' }])};
 `;
 
 const About = () => (
@@ -69,16 +82,9 @@ const About = () => (
               </StoryGreeting>
               <StoryText>
                 I&apos;m a Software Engineer from Seattle, WA with experience
-                across the stack, but focusing on the Front End. I&apos;m
-                currently building the future of medical supply with&nbsp;
-                <StoryLink
-                  href="https://bttnusa.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  bttn
-                </StoryLink>
-                . I love finding creative solutions to complex problems and
+                across the stack, but a passion for the Front End. I&apos;m
+                currently working as Software Engineer II, Core Platform Team at
+                Bttn. I love finding creative solutions to complex problems and
                 creating beautiful, reliable, and responsive web applications.
               </StoryText>
               <StoryText>

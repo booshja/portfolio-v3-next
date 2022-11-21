@@ -1,11 +1,13 @@
 // dependencies
 import { createGlobalStyle } from 'styled-components';
 // breakpoints
-// import { breakpoints } from "./breakpoints";
+import { breakpoints, breakpointValues } from './breakpoints';
+
+const { tabletSm, tabletLg } = breakpointValues;
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big,del, dfn, em, img, ins, kbd, q, s, samp,
+a, abbr, acronym, address, big,del, dfn, em, figure, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, b, u, i, dl, dt, dd, ol, ul, li,
 form, label, article, aside, details,footer, header, menu, main, nav, output,
 section, summary, time {
@@ -38,6 +40,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 ol, ul, nav {
     list-style: none;
@@ -73,9 +76,12 @@ textarea {
     align-items: center;
 }
 #__next {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  max-width: 100vw;
+
+  ${breakpoints('width', '', [{ [tabletSm]: '100%' }, { [tabletLg]: '100%' }])}
 }
 .grecaptcha-badge { visibility: hidden; }
 .slide-in-left {

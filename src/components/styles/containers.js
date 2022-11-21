@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { breakpoints, breakpointValues } from '../../styles/breakpoints';
 
 // eslint-disable-next-line
-const { mobileSm, mobileLg, tabletSm, tabletLg, desktopSm, desktopLg } =
-  breakpointValues;
+const { tabletSm, tabletLg, desktopSm, desktopLg } = breakpointValues;
 
 /** Generics ******************************************* */
 const ColumnFlex = styled.div`
@@ -19,6 +18,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   height: 60px;
   width: 100%;
+  max-width: 100vw;
   padding: 0 2rem;
   background-color: transparent;
   color: var(--color-text-primary);
@@ -35,10 +35,10 @@ const Nav = styled.nav`
 
   ${breakpoints('display', '', [{ [tabletSm]: 'flex' }])};
   ${breakpoints('width', '', [
-    { [tabletSm]: '60%' },
-    { [tabletLg]: '45%' },
-    { [desktopSm]: '40%' },
-    { [desktopLg]: '500px' },
+    { [tabletSm]: '65%' },
+    { [tabletLg]: '55%' },
+    { [desktopSm]: '45%' },
+    { [desktopLg]: '575px' },
   ])};
 `;
 
@@ -91,9 +91,35 @@ const VerticalAccentDiv = styled.div`
   margin-bottom: 2rem;
 `;
 
+const MenuWrapper = styled.div`
+  position: fixed;
+  overflow: hidden;
+  top: ${({ open }) => (open ? '0' : '-100%')};
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  transition: all 300ms ease-in-out;
+  padding: 3rem;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    padding-block: 3rem;
+    height: 66.6%;
+  }
+`;
+
 export {
   ColumnFlex,
   HeaderContainer,
+  MenuWrapper,
   Nav,
   SocialsContainer,
   SpinnerContainer,

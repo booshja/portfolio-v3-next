@@ -24,9 +24,9 @@ const lightTheme = {
 
 const softTheme = {
   bgPrimary: '#89aee1',
-  bgSecondary: '#9effb8',
-  bgCard: '#F7C9C0',
-  accent: '#e9f259',
+  bgSecondary: '#ffffff',
+  bgCard: '#87a878',
+  accent: '#b0bc98',
   textPrimary: '#ffffff',
   textSecondary: '#f7c9c0',
   textCard: '#000000',

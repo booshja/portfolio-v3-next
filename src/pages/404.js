@@ -1,22 +1,19 @@
 // dependencies
-import styled, { ThemeProvider } from 'styled-components';
-import { useSelector } from 'react-redux';
+import styled from 'styled-components';
 // components
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MainContent, PageContainer } from '../../styles/pages/containers';
+import { MainContent, PageContainer } from '../styles/pages/containers';
 import {
   PageTitle,
   NotFoundLink,
   NotFoundText,
-} from '../../styles/pages/typography';
-import { NotFoundImg } from '../../styles/pages/media';
-import { Header, Socials, Copyright } from '../../components';
+} from '../styles/pages/typography';
+import { NotFoundImg } from '../styles/pages/media';
+import { Header, Socials, Copyright } from '../components';
 // assets
-import SadIceCream from '../../../public/images/sad-ice-cream.jpeg';
-// state
-import { selectColorMode } from '../../redux/slices/themeSlice';
+import SadIceCream from '../../public/images/sad-ice-cream.jpeg';
 
 const NotFoundContainer = styled(PageContainer)`
   background-color: var(--color-bg-secondary);
@@ -61,8 +58,8 @@ const NotFound = () => (
             alt="Ice cream dropped on a stone slab"
             layout="fill"
             priority
-            objectFit="contain"
-            objectPosition="50% bottom"
+            // objectFit="contain"
+            // objectPosition="50% bottom"
           />
         </NotFoundImg>
       </NotFoundContent>
