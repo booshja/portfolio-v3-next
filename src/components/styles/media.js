@@ -1,8 +1,7 @@
 /* eslint-disable */
 // dependencies
 import styled from 'styled-components';
-// components
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 
 /** Images ********************************************* */
 const ResultImg = styled(Image)`

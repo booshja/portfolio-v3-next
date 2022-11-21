@@ -1,4 +1,5 @@
 // dependencies
+import Link from 'next/link';
 import styled from 'styled-components';
 import { breakpoints, breakpointValues } from '../breakpoints';
 
@@ -204,7 +205,7 @@ const Skill = styled.li`
 `;
 
 /** Links ********************************************** */
-const ExpCardLink = styled.a`
+const ExpCardLink = styled(Link)`
   font-size: 2.2rem;
   font-weight: 700;
   line-height: 1.5;
@@ -228,7 +229,7 @@ const ExpCardLink = styled.a`
   }
 `;
 
-const StoryLink = styled.a`
+const StoryLink = styled(Link)`
   color: var(--color-text-primary);
   font-size: 2rem;
   font-weight: 700;
@@ -258,7 +259,7 @@ const ReCAPTCHALink = styled.a`
   }
 `;
 
-const NotFoundLink = styled.a`
+const NotFoundLink = styled(Link)`
   font-size: 2.4rem;
   font-weight: 700;
   text-decoration: underline;

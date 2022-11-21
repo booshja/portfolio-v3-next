@@ -2,8 +2,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 // components
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/legacy/image';
 import ThemeToggle from './ThemeToggle';
 import {
   HeaderContainer,
@@ -14,7 +13,9 @@ import {
 import {
   WebsiteName,
   StyledNavLink,
+  StyledExternalNavLink,
   MobileMenuLink,
+  MobileMenuExternalLink,
 } from './styles/typography';
 import { ClosingXButton, MobileMenuButton } from './styles/buttons';
 // context
@@ -56,32 +57,22 @@ const Header = ({ notFound }) => {
   return (
     <HeaderContainer>
       <WebsiteNameContainer>
-        <Link passHref href="/">
-          <WebsiteName>
-            {`JacobAndes.${makeBreadcrumbs(router.pathname)}`}
-          </WebsiteName>
-        </Link>
+        <WebsiteName href="/">
+          {`JacobAndes.${makeBreadcrumbs(router.pathname)}`}
+        </WebsiteName>
       </WebsiteNameContainer>
       <Nav>
-        <Link passHref href="/">
-          <StyledNavLink>.is()</StyledNavLink>
-        </Link>
-        <Link passHref href="/experience">
-          <StyledNavLink>.experience()</StyledNavLink>
-        </Link>
-        <Link href="/about" passHref>
-          <StyledNavLink>.about()</StyledNavLink>
-        </Link>
-        <Link href="/contact" passHref>
-          <StyledNavLink>.contact()</StyledNavLink>
-        </Link>
-        <StyledNavLink
+        <StyledNavLink href="/">.is()</StyledNavLink>
+        <StyledNavLink href="/experience">.experience()</StyledNavLink>
+        <StyledNavLink href="/about">.about()</StyledNavLink>
+        <StyledNavLink href="/contact">.contact()</StyledNavLink>
+        <StyledExternalNavLink
           href="https://importfrom.dev"
           target="_blank"
           rel="noopener noreferrer"
         >
           .blog()
-        </StyledNavLink>
+        </StyledExternalNavLink>
         <ThemeToggle />
       </Nav>
       <MobileMenuButton type="button" onClick={handleMenuOpen}>
@@ -95,25 +86,17 @@ const Header = ({ notFound }) => {
       </MobileMenuButton>
       <MenuWrapper open={open}>
         <ClosingXButton onClick={() => setOpen((o) => !o)}>X</ClosingXButton>
-        <Link href="/" passHref>
-          <MobileMenuLink logo>JacobAndes.dev</MobileMenuLink>
-        </Link>
+        <MobileMenuLink href="/" logo>
+          JacobAndes.dev
+        </MobileMenuLink>
         <nav>
-          <Link href="/" passHref>
-            <MobileMenuLink>.is()</MobileMenuLink>
-          </Link>
-          <Link href="/experience" passHref>
-            <MobileMenuLink>.experience()</MobileMenuLink>
-          </Link>
-          <Link href="/about" passHref>
-            <MobileMenuLink>.about()</MobileMenuLink>
-          </Link>
-          <Link href="/contact" passHref>
-            <MobileMenuLink>.contact()</MobileMenuLink>
-          </Link>
-          <MobileMenuLink href="https://www.importfrom.dev">
+          <MobileMenuLink href="/">.is()</MobileMenuLink>
+          <MobileMenuLink href="/experience">.experience()</MobileMenuLink>
+          <MobileMenuLink href="/about">.about()</MobileMenuLink>
+          <MobileMenuLink href="/contact">.contact()</MobileMenuLink>
+          <MobileMenuExternalLink href="https://www.importfrom.dev">
             .blog()
-          </MobileMenuLink>
+          </MobileMenuExternalLink>
         </nav>
         <ThemeToggle />
       </MenuWrapper>

@@ -2,8 +2,7 @@
 import styled from 'styled-components';
 // components
 import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { MainContent, PageContainer } from '../styles/pages/containers';
 import {
   PageTitle,
@@ -47,9 +46,7 @@ const NotFound = () => (
         <NotFoundText>Uh oh, couldn&apos;t find that&hellip;</NotFoundText>
         <NotFoundText>
           Click&nbsp;
-          <Link href="/" passHref>
-            <NotFoundLink>here</NotFoundLink>
-          </Link>
+          <NotFoundLink href="/">here</NotFoundLink>
           &nbsp;to go back home.
         </NotFoundText>
         <NotFoundImg>

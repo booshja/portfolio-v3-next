@@ -2,8 +2,7 @@
 import styled from 'styled-components';
 // components
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/legacy/image';
 import { PageContainer } from '../../styles/pages/containers';
 import { NotFoundLink } from '../../styles/pages/typography';
 import { BugsNoImg } from '../../styles/pages/media';
@@ -41,9 +40,7 @@ const WpAdmin = () => (
           objectPosition="50% bottom"
         />
       </BugsNoImg>
-      <Link href="/" passHref>
-        <NotFoundLink>Go Back</NotFoundLink>
-      </Link>
+      <NotFoundLink href="/">Go Back</NotFoundLink>
     </NotFoundContainer>
   </>
 );

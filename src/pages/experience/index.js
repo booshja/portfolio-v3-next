@@ -7,8 +7,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLaptop, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 // components
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/legacy/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PublicLayout } from '../../components';
 import {
@@ -108,26 +107,24 @@ const Experience = ({ projects: projs }) => {
                     </ExpCardFront>
                     <ExpCardBack theme={colorMode}>
                       {item?.github_url && (
-                        <Link passHref href={item.github_url}>
-                          <ExpCardLink
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FontAwesomeIcon icon={faGithub} />
-                            View on GitHub
-                          </ExpCardLink>
-                        </Link>
+                        <ExpCardLink
+                          href={item.github_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faGithub} />
+                          View on GitHub
+                        </ExpCardLink>
                       )}
                       {item?.live_url && (
-                        <Link passHref href={item.live_url}>
-                          <ExpCardLink
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FontAwesomeIcon icon={faLaptop} />
-                            View Live Website
-                          </ExpCardLink>
-                        </Link>
+                        <ExpCardLink
+                          href={item.live_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faLaptop} />
+                          View Live Website
+                        </ExpCardLink>
                       )}
                       {!item?.live_url && !item?.github_url && (
                         <p>No Links Available!</p>

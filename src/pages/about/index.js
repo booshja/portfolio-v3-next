@@ -2,10 +2,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { v4 as randomId } from 'uuid';
-// components
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Head from 'next/head';
-// import Link from 'next/link';
 import { PublicLayout } from '../../components';
 import {
   PageContainer,
@@ -90,13 +88,12 @@ const About = () => (
               <StoryText>
                 When I&apos;m not coding, you can find me spending time with
                 my&nbsp;
-                {/* <Link href="https://paintingjoy.art" passHref><StoryLink
+                {/* <StoryLink href="https://paintingjoy.art"
               target="_blank"
               rel="noopener noreferrer"
               >
               partner
               </StoryLink>
-              </Link>
             &nbsp;partner and  */}
                 dogs, listening to music, going to see live music, reading,
                 watching hockey, or clumsily playing hockey in the Kraken Hockey
