@@ -7,8 +7,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLaptop, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 // components
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/legacy/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PublicLayout } from '../../components';
 import {

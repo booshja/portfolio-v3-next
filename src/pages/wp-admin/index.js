@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 // components
 import Head from 'next/head';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { PageContainer } from '../../styles/pages/containers';
 import { NotFoundLink } from '../../styles/pages/typography';
 import { BugsNoImg } from '../../styles/pages/media';

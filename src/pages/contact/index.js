@@ -5,7 +5,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 // components
 import Head from 'next/head';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import {
   PageContainer,
   MainContent,

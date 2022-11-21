@@ -2,8 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { v4 as randomId } from 'uuid';
-// components
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Head from 'next/head';
 import { PublicLayout } from '../../components';
 import {
