@@ -68,7 +68,7 @@ const About = () => (
       />
       <meta name="robots" content="index, follow" />
     </Head>
-    <PublicLayout data-test="public-layout">
+    <PublicLayout>
       <AboutContainer data-test="page-container">
         <PageTitle data-test="page-title">about()</PageTitle>
         <MainContent className="slide-in-left" data-test="main-content">
@@ -81,20 +81,13 @@ const About = () => (
               <StoryText data-test="about-text">
                 I&apos;m a Software Engineer from Seattle, WA with experience
                 across the stack, but a passion for the Front End. I&apos;m
-                currently working as Software Engineer II, Core Platform Team at
-                Bttn. I love finding creative solutions to complex problems and
-                creating beautiful, reliable, and responsive web applications.
+                currently looking for a new role, most recently having worked as
+                a Software Engineer II, Core Platform Team at Bttn. I love
+                finding creative solutions to complex problems and creating
+                beautiful, reliable, and responsive web applications.
               </StoryText>
               <StoryText data-test="about-text">
-                When I&apos;m not coding, you can find me spending time with
-                my&nbsp;
-                {/* <StoryLink href="https://paintingjoy.art"
-              target="_blank"
-              rel="noopener noreferrer"
-              >
-              partner
-              </StoryLink>
-            &nbsp;partner and  */}
+                When I&apos;m not coding, you can find me spending time with my
                 dogs, listening to music, going to see live music, reading,
                 watching hockey, or clumsily playing hockey in the Kraken Hockey
                 League.

@@ -108,7 +108,7 @@ const Header = ({ notFound }) => {
         <MobileMenuLink href="/" logo data-test="mobile-logo-link">
           JacobAndes.dev
         </MobileMenuLink>
-        <nav>
+        <nav data-test="mobile-nav">
           <MobileMenuLink href="/" data-test="is-mobile-nav-link">
             .is()
           </MobileMenuLink>

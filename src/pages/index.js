@@ -24,7 +24,7 @@ const Is = () => (
       />
       <meta name="robots" content="index, follow" />
     </Head>
-    <PublicLayout data-test="public-layout">
+    <PublicLayout>
       <IsPageContainer data-test="page-container">
         <MyName className="slide-in-left" data-test="my-name">
           Jacob Andes
