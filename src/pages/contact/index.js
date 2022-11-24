@@ -241,7 +241,7 @@ const Contact = () => {
         <meta name="description" content="Contact Jacob Andes via this form." />
         <meta name="robots" content="index, follow" />
       </Head>
-      <PublicLayout data-test="public-layout">
+      <PublicLayout>
         <ContactContainer data-test="page-container">
           {content}
           <ReCAPTCHA
