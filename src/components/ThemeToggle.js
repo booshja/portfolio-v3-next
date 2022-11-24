@@ -19,8 +19,13 @@ const ThemeToggle = () => {
       aria-label="Button to change the color mode between light, dark, sharp, and soft themes."
       onClick={() => setNextColorMode()}
       type="button"
+      data-test="theme-toggle-button"
     >
-      <FontAwesomeIcon icon={faMountain} fontSize="inherit" />
+      <FontAwesomeIcon
+        icon={faMountain}
+        fontSize="inherit"
+        data-test="theme-toggle-icon"
+      />
       &nbsp;{colorMode}
     </NavButton>
   );

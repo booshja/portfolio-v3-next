@@ -1,11 +1,9 @@
-// dependencies
-import React from 'react';
 // components
 import { CopyrightText } from './styles/typography';
 
 const Copyright = () => (
-  <footer>
-    <CopyrightText>
+  <footer data-test="footer">
+    <CopyrightText data-test="copyright-text">
       &copy; 2020 - Present Jacob Andes. All Rights Reserved.
     </CopyrightText>
   </footer>

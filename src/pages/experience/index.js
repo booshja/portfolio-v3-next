@@ -67,31 +67,42 @@ const Experience = ({ projects: projs }) => {
 
   if (projects.length) {
     content = (
-      <MainContent className="slide-in-left">
-        <ExpList>
+      <MainContent className="slide-in-left" data-test="main-container">
+        <ExpList data-test="exp-list">
           {projects.map((item) => (
-            <ExpItem key={item.position}>
-              <ExpLeft>
-                <ExpItemName>{item.name}:</ExpItemName>
-                <ExpItemText>
-                  <span>description: </span> {item.description}
+            <ExpItem key={item.position} data-test="exp-item">
+              <ExpLeft data-test="exp-item-left">
+                <ExpItemName data-test="exp-item-name">
+                  {item.name}:
+                </ExpItemName>
+                <ExpItemText data-test="exp-item-description">
+                  <span data-test="description-label-span">description: </span>{' '}
+                  {item.description}
                 </ExpItemText>
-                <ExpItemText>
-                  <span>thoughts: </span> {item.thoughts}
+                <ExpItemText data-test="exp-item-thoughts">
+                  <span data-test="thoughts-label-span">thoughts: </span>{' '}
+                  {item.thoughts}
                 </ExpItemText>
-                <TagList>
+                <TagList data-test="exp-item-tag-list">
                   {item.tags.map((tag) => (
-                    <Tag key={randomId()} theme={colorMode}>
+                    <Tag
+                      key={randomId()}
+                      theme={colorMode}
+                      data-test="exp-item-tag"
+                    >
                       {tag}
                     </Tag>
                   ))}
                 </TagList>
               </ExpLeft>
-              <ExpRight>
-                <ExpCard>
-                  <ExpCardInner>
-                    <ExpCardFront theme={colorMode}>
-                      <Screencap>
+              <ExpRight data-test="exp-item-right">
+                <ExpCard data-test="exp-card">
+                  <ExpCardInner data-test="exp-card-inner">
+                    <ExpCardFront
+                      theme={colorMode}
+                      data-test="exp-card-inner-front"
+                    >
+                      <Screencap data-test="exp-card-inner-screencap-container">
                         <Image
                           src={item.image_url}
                           alt={`${item.name} screen capture.`}
@@ -99,20 +110,31 @@ const Experience = ({ projects: projs }) => {
                           layout="fill"
                           objectFit="contain"
                           objectPosition="50% 50%"
+                          data-test="exp-card-inner-screencap-image"
                         />
                       </Screencap>
-                      <FlipArrow>
-                        <FontAwesomeIcon icon={faArrowDown} />
+                      <FlipArrow data-test="exp-card-inner-flip-arrow">
+                        <FontAwesomeIcon
+                          icon={faArrowDown}
+                          data-test="exp-card-inner-flip-icon"
+                        />
                       </FlipArrow>
                     </ExpCardFront>
-                    <ExpCardBack theme={colorMode}>
+                    <ExpCardBack
+                      theme={colorMode}
+                      data-test="exp-card-inner-back"
+                    >
                       {item?.github_url && (
                         <ExpCardLink
                           href={item.github_url}
                           target="_blank"
                           rel="noopener noreferrer"
+                          data-test="exp-card-inner-github-link"
                         >
-                          <FontAwesomeIcon icon={faGithub} />
+                          <FontAwesomeIcon
+                            icon={faGithub}
+                            data-test="exp-card-inner-github-link-icon"
+                          />
                           View on GitHub
                         </ExpCardLink>
                       )}
@@ -121,13 +143,19 @@ const Experience = ({ projects: projs }) => {
                           href={item.live_url}
                           target="_blank"
                           rel="noopener noreferrer"
+                          data-test="exp-card-inner-live-link"
                         >
-                          <FontAwesomeIcon icon={faLaptop} />
+                          <FontAwesomeIcon
+                            icon={faLaptop}
+                            data-test="exp-card-inner-live-link-icon"
+                          />
                           View Live Website
                         </ExpCardLink>
                       )}
                       {!item?.live_url && !item?.github_url && (
-                        <p>No Links Available!</p>
+                        <p data-test="exp-card-inner-no-links-text">
+                          No Links Available!
+                        </p>
                       )}
                     </ExpCardBack>
                   </ExpCardInner>
@@ -140,9 +168,11 @@ const Experience = ({ projects: projs }) => {
     );
   } else {
     content = (
-      <MainContent className="slide-in-left">
-        <ExpList>
-          <ExpItemText>No projects found!</ExpItemText>
+      <MainContent className="slide-in-left" data-test="main-container">
+        <ExpList data-test="exp-list">
+          <ExpItemText data-test="no-projects-text">
+            No projects found!
+          </ExpItemText>
         </ExpList>
       </MainContent>
     );
@@ -158,9 +188,9 @@ const Experience = ({ projects: projs }) => {
         />
         <meta name="robots" content="index, follow" />
       </Head>
-      <PublicLayout>
-        <ExpContainer>
-          <PageTitle>experience()</PageTitle>
+      <PublicLayout data-test="public-layout">
+        <ExpContainer data-test="page-container">
+          <PageTitle data-test="page-title">experience()</PageTitle>
           {content}
         </ExpContainer>
       </PublicLayout>

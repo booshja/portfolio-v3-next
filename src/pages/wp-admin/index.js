@@ -29,8 +29,8 @@ const WpAdmin = () => (
       />
       <meta name="robots" content="noindex, follow" />
     </Head>
-    <NotFoundContainer wp>
-      <BugsNoImg>
+    <NotFoundContainer wp data-test="page-container">
+      <BugsNoImg data-test="bugs-image-container">
         <Image
           src={BugsSaysNo}
           alt="Bugs bunny no meme"
@@ -38,9 +38,12 @@ const WpAdmin = () => (
           priority
           objectFit="contain"
           objectPosition="50% bottom"
+          data-test="bugs-image"
         />
       </BugsNoImg>
-      <NotFoundLink href="/">Go Back</NotFoundLink>
+      <NotFoundLink href="/" data-test="not-found-link">
+        Go Back
+      </NotFoundLink>
     </NotFoundContainer>
   </>
 );

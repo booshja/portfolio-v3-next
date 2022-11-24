@@ -40,16 +40,20 @@ const NotFound = () => (
     <Header notFound />
     <Socials />
     <Copyright />
-    <NotFoundContainer>
-      <PageTitle>notFound()</PageTitle>
-      <NotFoundContent>
-        <NotFoundText>Uh oh, couldn&apos;t find that&hellip;</NotFoundText>
-        <NotFoundText>
+    <NotFoundContainer data-test="page-container">
+      <PageTitle data-test="page-title">notFound()</PageTitle>
+      <NotFoundContent data-test="main-content">
+        <NotFoundText data-test="not-found-feedback">
+          Uh oh, couldn&apos;t find that&hellip;
+        </NotFoundText>
+        <NotFoundText data-test="not-found-feedback-link-text">
           Click&nbsp;
-          <NotFoundLink href="/">here</NotFoundLink>
+          <NotFoundLink href="/" data-test="not-found-feedback-link">
+            here
+          </NotFoundLink>
           &nbsp;to go back home.
         </NotFoundText>
-        <NotFoundImg>
+        <NotFoundImg data-test="not-found-image-container">
           <Image
             src={SadIceCream}
             alt="Ice cream dropped on a stone slab"
@@ -57,6 +61,7 @@ const NotFound = () => (
             priority
             // objectFit="contain"
             // objectPosition="50% bottom"
+            data-test="not-found-image"
           />
         </NotFoundImg>
       </NotFoundContent>

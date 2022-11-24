@@ -1,7 +1,7 @@
 // dependencies
-import React from 'react';
 import styled from 'styled-components';
 import { v4 as randomId } from 'uuid';
+// components
 import Image from 'next/legacy/image';
 import Head from 'next/head';
 import { PublicLayout } from '../../components';
@@ -68,24 +68,24 @@ const About = () => (
       />
       <meta name="robots" content="index, follow" />
     </Head>
-    <PublicLayout>
-      <AboutContainer>
-        <PageTitle>about()</PageTitle>
-        <MainContent className="slide-in-left">
-          <LeftSide>
+    <PublicLayout data-test="public-layout">
+      <AboutContainer data-test="page-container">
+        <PageTitle data-test="page-title">about()</PageTitle>
+        <MainContent className="slide-in-left" data-test="main-content">
+          <LeftSide data-test="left-side">
             <section>
-              <StoryGreeting>
-                <Hi>Hi! </Hi>
+              <StoryGreeting data-test="greeting-text">
+                <Hi data-test="greeting-hi">Hi!&nbsp;</Hi>
                 I&apos;m Jacob!
               </StoryGreeting>
-              <StoryText>
+              <StoryText data-test="about-text">
                 I&apos;m a Software Engineer from Seattle, WA with experience
                 across the stack, but a passion for the Front End. I&apos;m
                 currently working as Software Engineer II, Core Platform Team at
                 Bttn. I love finding creative solutions to complex problems and
                 creating beautiful, reliable, and responsive web applications.
               </StoryText>
-              <StoryText>
+              <StoryText data-test="about-text">
                 When I&apos;m not coding, you can find me spending time with
                 my&nbsp;
                 {/* <StoryLink href="https://paintingjoy.art"
@@ -100,16 +100,18 @@ const About = () => (
                 League.
               </StoryText>
             </section>
-            <SkillsSection>
-              <SkillsHeader>Skills:</SkillsHeader>
-              <SkillsList>
+            <SkillsSection data-test="skills-section">
+              <SkillsHeader data-test="skills-header">Skills:</SkillsHeader>
+              <SkillsList data-test="skills-list">
                 {data.skills.map((skill) => (
-                  <Skill key={randomId()}>{skill}</Skill>
+                  <Skill key={randomId()} data-test="skills-skill">
+                    {skill}
+                  </Skill>
                 ))}
               </SkillsList>
             </SkillsSection>
           </LeftSide>
-          <RightSide>
+          <RightSide data-test="right-side">
             <Image
               src={Headshot}
               alt="Jacob smiling in front of an abstact, brightly colored cloud mural by Painting Joy Mural Co."
@@ -117,6 +119,7 @@ const About = () => (
               priority
               height={942}
               width={827}
+              data-test="me-image"
             />
           </RightSide>
         </MainContent>

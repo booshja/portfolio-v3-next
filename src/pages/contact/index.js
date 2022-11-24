@@ -1,5 +1,5 @@
 // dependencies
-import React, { createRef, useState } from 'react';
+import { createRef, useState } from 'react';
 import styled from 'styled-components';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
@@ -108,8 +108,8 @@ const Contact = () => {
   if (loading) {
     content = (
       <>
-        <PageTitle>contact()</PageTitle>
-        <MainContent className="center">
+        <PageTitle data-test="page-title">contact()</PageTitle>
+        <MainContent className="center" data-test="main-content">
           <LoadingSpinner />
         </MainContent>
       </>
@@ -117,46 +117,65 @@ const Contact = () => {
   } else if (approval) {
     content = (
       <>
-        <PageTitle>contact()</PageTitle>
+        <PageTitle data-test="page-title">contact()</PageTitle>
         <Result approval className="slide-in-left" />
       </>
     );
   } else if (error) {
     content = (
       <>
-        <PageTitle>contact()</PageTitle>
+        <PageTitle data-test="page-title">contact()</PageTitle>
         <Result className="slide-in-left" />
       </>
     );
   } else {
     content = (
       <>
-        <PageTitle>contact()</PageTitle>
-        <MainContent className="slide-in-left">
-          <LeftSide>
-            <ContactText>
+        <PageTitle data-test="page-title">contact()</PageTitle>
+        <MainContent className="slide-in-left" data-test="main-content">
+          <LeftSide data-test="left-side">
+            <ContactText data-test="contact-text">
               Have a question, thoughts, or want to work together?
             </ContactText>
-            <ContactForm onSubmit={handleSubmit(onSubmit)}>
-              <ContactLabel htmlFor="name">Name:</ContactLabel>
+            <ContactForm
+              onSubmit={handleSubmit(onSubmit)}
+              data-test="contact-form"
+            >
+              <ContactLabel htmlFor="name" data-test="contact-form-label">
+                Name:
+              </ContactLabel>
               <ContactInput
                 type="text"
                 placeholder="Namey McNameson"
                 id="name"
                 // eslint-disable-next-line
                 {...register('name', { required: 'Name is required.' })}
+                data-test="contact-form-input"
               />
-              {errors.name && <FormError>{errors.name.message}</FormError>}
-              <ContactLabel htmlFor="email">Email:</ContactLabel>
+              {errors.name && (
+                <FormError data-test="contact-form-error">
+                  {errors.name.message}
+                </FormError>
+              )}
+              <ContactLabel htmlFor="email" data-test="contact-form-label">
+                Email:
+              </ContactLabel>
               <ContactInput
                 type="text"
                 placeholder="example@email.com"
                 id="email"
                 // eslint-disable-next-line
                 {...register('email', { required: 'Email is required.' })}
+                data-test="contact-form-input"
               />
-              {errors.email && <FormError>{errors.email.message}</FormError>}
-              <ContactLabel htmlFor="name">Message:</ContactLabel>
+              {errors.email && (
+                <FormError data-test="contact-form-error">
+                  {errors.email.message}
+                </FormError>
+              )}
+              <ContactLabel htmlFor="name" data-test="contact-form-label">
+                Message:
+              </ContactLabel>
               <ContactTextArea
                 placeholder="I had an idea for you..."
                 id="message"
@@ -170,31 +189,43 @@ const Contact = () => {
                     message: 'Maximum message length 200 characters.',
                   },
                 })}
+                data-test="contact-form-input"
               />
               {errors.message && (
-                <FormError>{errors.message.message}</FormError>
+                <FormError data-test="contact-form-error">
+                  {errors.message.message}
+                </FormError>
               )}
-              <ReCAPTCHAText>
+              <ReCAPTCHAText data-test="recaptcha-text">
                 This site is protected by reCAPTCHA and the Google&nbsp;
-                <ReCAPTCHALink href="https://policies.google.com/privacy">
+                <ReCAPTCHALink
+                  href="https://policies.google.com/privacy"
+                  data-test="recaptcha-link"
+                >
                   Privacy Policy
                 </ReCAPTCHALink>
                 &nbsp;and&nbsp;
-                <ReCAPTCHALink href="https://policies.google.com/terms">
+                <ReCAPTCHALink
+                  href="https://policies.google.com/terms"
+                  data-test="recaptcha-link"
+                >
                   Terms of Service
                 </ReCAPTCHALink>
                 &nbsp;apply.
               </ReCAPTCHAText>
-              <FormSubmitBtn type="submit">Submit</FormSubmitBtn>
+              <FormSubmitBtn type="submit" data-test="contact-form-button">
+                Submit
+              </FormSubmitBtn>
             </ContactForm>
           </LeftSide>
-          <RightSide>
-            <MailImg>
+          <RightSide data-test="right-side">
+            <MailImg data-test="mail-image-container">
               <Image
                 src={MailBoxes}
                 alt="Wall of blue P.O. Boxes."
                 layout="responsive"
                 priority
+                data-test="mail-image"
               />
             </MailImg>
           </RightSide>
@@ -210,8 +241,8 @@ const Contact = () => {
         <meta name="description" content="Contact Jacob Andes via this form." />
         <meta name="robots" content="index, follow" />
       </Head>
-      <PublicLayout>
-        <ContactContainer>
+      <PublicLayout data-test="public-layout">
+        <ContactContainer data-test="page-container">
           {content}
           <ReCAPTCHA
             ref={recaptchaRef}
@@ -222,6 +253,7 @@ const Contact = () => {
               setError(true);
               setLoading(false);
             }}
+            data-test="recaptcha"
           />
         </ContactContainer>
       </PublicLayout>

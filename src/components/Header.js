@@ -1,5 +1,5 @@
 // dependencies
-import React, { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 // components
 import Image from 'next/legacy/image';
@@ -55,46 +55,79 @@ const Header = ({ notFound }) => {
   };
 
   return (
-    <HeaderContainer>
-      <WebsiteNameContainer>
-        <WebsiteName href="/">
+    <HeaderContainer data-test="header-container">
+      <WebsiteNameContainer data-test="name-container">
+        <WebsiteName href="/" data-test="logo-link">
           {`JacobAndes.${makeBreadcrumbs(router.pathname)}`}
         </WebsiteName>
       </WebsiteNameContainer>
-      <Nav>
-        <StyledNavLink href="/">.is()</StyledNavLink>
-        <StyledNavLink href="/experience">.experience()</StyledNavLink>
-        <StyledNavLink href="/about">.about()</StyledNavLink>
-        <StyledNavLink href="/contact">.contact()</StyledNavLink>
+      <Nav data-test="desktop-nav">
+        <StyledNavLink href="/" data-test="is-nav-link">
+          .is()
+        </StyledNavLink>
+        <StyledNavLink href="/experience" data-test="experience-nav-link">
+          .experience()
+        </StyledNavLink>
+        <StyledNavLink href="/about" data-test="about-nav-link">
+          .about()
+        </StyledNavLink>
+        <StyledNavLink href="/contact" data-test="contact-nav-link">
+          .contact()
+        </StyledNavLink>
         <StyledExternalNavLink
           href="https://importfrom.dev"
           target="_blank"
           rel="noopener noreferrer"
+          data-test="blog-external-nav-link"
         >
           .blog()
         </StyledExternalNavLink>
         <ThemeToggle />
       </Nav>
-      <MobileMenuButton type="button" onClick={handleMenuOpen}>
+      <MobileMenuButton
+        type="button"
+        onClick={handleMenuOpen}
+        data-test="mobile-menu-button"
+      >
         <Image
           src={colorMode === 'light' ? MountainLight : MountainDark}
           alt="Mountain icon denoting mobile menu"
           layout="fixed"
           height={30}
           width={30}
+          data-test="hamburger-button"
         />
       </MobileMenuButton>
-      <MenuWrapper open={open}>
-        <ClosingXButton onClick={() => setOpen((o) => !o)}>X</ClosingXButton>
-        <MobileMenuLink href="/" logo>
+      <MenuWrapper open={open} data-test="mobile-menu-wrapper">
+        <ClosingXButton
+          onClick={() => setOpen((o) => !o)}
+          data-test="closing-button"
+        >
+          X
+        </ClosingXButton>
+        <MobileMenuLink href="/" logo data-test="mobile-logo-link">
           JacobAndes.dev
         </MobileMenuLink>
         <nav>
-          <MobileMenuLink href="/">.is()</MobileMenuLink>
-          <MobileMenuLink href="/experience">.experience()</MobileMenuLink>
-          <MobileMenuLink href="/about">.about()</MobileMenuLink>
-          <MobileMenuLink href="/contact">.contact()</MobileMenuLink>
-          <MobileMenuExternalLink href="https://www.importfrom.dev">
+          <MobileMenuLink href="/" data-test="is-mobile-nav-link">
+            .is()
+          </MobileMenuLink>
+          <MobileMenuLink
+            href="/experience"
+            data-test="experience-mobile-nav-link"
+          >
+            .experience()
+          </MobileMenuLink>
+          <MobileMenuLink href="/about" data-test="about-mobile-nav-link">
+            .about()
+          </MobileMenuLink>
+          <MobileMenuLink href="/contact" data-test="contact-mobile-nav-link">
+            .contact()
+          </MobileMenuLink>
+          <MobileMenuExternalLink
+            href="https://www.importfrom.dev"
+            data-test="blog-external-mobile-nav-link"
+          >
             .blog()
           </MobileMenuExternalLink>
         </nav>

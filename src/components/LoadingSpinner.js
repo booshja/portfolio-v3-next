@@ -1,5 +1,3 @@
-// dependencies
-import React from 'react';
 // assets
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 // components
@@ -8,9 +6,9 @@ import { LoadingText } from './styles/typography';
 import { SpinnerContainer } from './styles/containers';
 
 const LoadingSpinner = ({ size }) => (
-  <SpinnerContainer size={size}>
-    <FontAwesomeIcon icon={faPaw} spin />
-    <LoadingText>Loading&hellip;</LoadingText>
+  <SpinnerContainer size={size} data-test="spinner-container">
+    <FontAwesomeIcon icon={faPaw} spin data-test="spinner-icon" />
+    <LoadingText data-test="spinner-test">Loading&hellip;</LoadingText>
   </SpinnerContainer>
 );
 

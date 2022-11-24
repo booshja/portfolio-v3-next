@@ -24,11 +24,15 @@ const Is = () => (
       />
       <meta name="robots" content="index, follow" />
     </Head>
-    <PublicLayout>
-      <IsPageContainer>
-        <MyName className="slide-in-left">Jacob Andes</MyName>
-        <LandingDivider className="slide-in-left" />
-        <MyTitle className="slide-in-left">Software Engineer</MyTitle>
+    <PublicLayout data-test="public-layout">
+      <IsPageContainer data-test="page-container">
+        <MyName className="slide-in-left" data-test="my-name">
+          Jacob Andes
+        </MyName>
+        <LandingDivider className="slide-in-left" data-test="landing-divider" />
+        <MyTitle className="slide-in-left" data-test="my-title">
+          Software Engineer
+        </MyTitle>
       </IsPageContainer>
     </PublicLayout>
   </>

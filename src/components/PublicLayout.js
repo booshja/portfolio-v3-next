@@ -1,5 +1,3 @@
-// dependencies
-import React from 'react';
 // components
 import Copyright from './Copyright';
 import Header from './Header';

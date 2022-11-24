@@ -1,5 +1,3 @@
-// dependencies
-import React from 'react';
 // assets
 import {
   faGithub,
@@ -12,18 +10,21 @@ import { SocialsContainer, VerticalAccentDiv } from './styles/containers';
 import { FollowMe } from './styles/typography';
 
 const Socials = () => (
-  <SocialsContainer>
-    <a href="https://github.com/booshja/">
-      <FontAwesomeIcon icon={faGithub} />
+  <SocialsContainer data-test="socials-container">
+    <a href="https://github.com/booshja/" data-test="github-socials-link">
+      <FontAwesomeIcon icon={faGithub} data-test="github-socials-icon" />
     </a>
-    <a href="https://twitter.com/booshja">
-      <FontAwesomeIcon icon={faTwitter} />
+    <a href="https://twitter.com/booshja" data-test="twitter-socials-link">
+      <FontAwesomeIcon icon={faTwitter} data-test="twitter-socials-icon" />
     </a>
-    <a href="https://www.linkedin.com/in/jacobandes/">
-      <FontAwesomeIcon icon={faLinkedin} />
+    <a
+      href="https://www.linkedin.com/in/jacobandes/"
+      data-test="linkedin-socials-link"
+    >
+      <FontAwesomeIcon icon={faLinkedin} data-test="linkedin-socials-icon" />
     </a>
-    <VerticalAccentDiv />
-    <FollowMe>Follow Me</FollowMe>
+    <VerticalAccentDiv data-test="socials-vertical-accent" />
+    <FollowMe data-test="socials-follow-text">Follow Me</FollowMe>
   </SocialsContainer>
 );
 
