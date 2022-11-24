@@ -33,5 +33,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# cypress
+cypress/videos
+cypress/screenshots
+cypress/downloads
+
 # misc.
 externallyHostedImages/

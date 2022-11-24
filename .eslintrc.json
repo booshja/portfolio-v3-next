@@ -2,10 +2,14 @@
   "root": true,
   "env": {
     "browser": true,
-    "es6": true,
-    "jest": true
+    "es6": true
   },
-  "extends": ["prettier", "airbnb", "next/core-web-vitals"],
+  "extends": [
+    "prettier",
+    "airbnb",
+    "next/core-web-vitals",
+    "plugin:cypress/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"

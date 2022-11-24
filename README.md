@@ -25,13 +25,13 @@ API Route Reference can be [found here](docs/server/api-webhooks-reference.md)
 Run individual test suites in the Cypress GUI:
 
 ```zsh
-% npm run test:open
+npm run test:open
 ```
 
 Run all tests in Headless mode:
 
 ```zsh
-% npm run test
+npm run test
 ```
 
 <hr/>
@@ -40,11 +40,11 @@ Run all tests in Headless mode:
 
 ### **Client:**
 
-React, Next, Redux ToolKit, styled-components
+React, Next.js, Redux ToolKit, styled-components
 
 ### **Server:**
 
-Mongoose
+Mongoose, Next.js
 
 ### **Database:**
 
@@ -54,9 +54,9 @@ MongoDB
 
 auth0 -->
 
-<!-- ### **Testing:**
+### **Testing:**
 
-Cypress, start-server-and-test -->
+Cypress, start-server-and-test
 
 <hr/>
 
