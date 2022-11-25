@@ -1,12 +1,8 @@
 version: 2.1
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Orbs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Executors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 orbs:
-  cypress: cypress-io/cypress@2.2.0
-executors:
-  with-browsers:
-    docker:
-      - image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+  cypress: cypress-io/cypress@2
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Commands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 commands:
@@ -21,9 +17,11 @@ workflows:
   build:
     jobs:
       - cypress/install:
+          executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
           build: 'npm run build'
       - cypress/run:
           name: Chrome
+          executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
           requires:
             - cypress/install
           executor: with-browsers
@@ -38,6 +36,7 @@ workflows:
                 path: coverage
       - cypress/run:
           name: Firefox
+          executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
           requires:
             - cypress/install
           executor: with-browsers
@@ -52,6 +51,7 @@ workflows:
                 path: coverage
       - cypress/run:
           name: Edge
+          executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
           requires:
             - cypress/install
           executor: with-browsers
