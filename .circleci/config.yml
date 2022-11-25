@@ -2,61 +2,78 @@ version: 2.1
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Executors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 orbs:
-  cypress: cypress-io/cypress@2
+  cypress: cypress-io/cypress@2.1.0
+
+executors:
+  with-chrome-firefox-and-edge:
+    docker:
+      - image: 'cypress/browsers:node16.18.0-chrome107-ff106-edge'
+    resource_class: large
+    environment:
+      CYPRESS_coverage: false
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Commands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Workflows ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+linux-workflow: &linux-workflow
+  jobs:
+    - cypress/install:
+        name: 'Setup Linux'
+        executor: with-chrome-firefox-and-edge
+        build: 'npm run build'
+        post-steps:
+          - run:
+              name: Print machine info ℹ️
+              command: npm run cypress info
+
+    - cypress/run:
+        name: 'UI Tests - Chrome'
+        browser: chrome
+        executor: with-chrome-firefox-and-edge
+        requires:
+          - Setup Linux
+        group: 'UI - Chrome'
+        parallel: true
+        parallelism: 5
+        ci-build-id: ${CIRCLE_SHA1:0:8}
+        record: true
+        command: npm run test:ci:chrome
+        post-steps:
+          - store_artifacts:
+              path: coverage
+
+    - cypress/run:
+        name: 'UI Tests - Firefox'
+        browser: firefox
+        executor: with-chrome-firefox-and-edge
+        requires:
+          - Setup Linux
+        group: 'UI - Firefox'
+        parallel: true
+        parallelism: 5
+        ci-build-id: ${CIRCLE_SHA1:0:8}
+        record: true
+        command: npm run test:ci:firefox
+        post-steps:
+          - store_artifacts:
+              path: coverage
+
+    - cypress/run:
+        name: Edge
+        browser: edge
+        executor: with-chrome-firefox-and-edge
+        requires:
+          - Setup Linux
+        group: 'UI - Edge'
+        parallel: true
+        parallelism: 5
+        ci-build-id: ${CIRCLE_SHA1:0:8}
+        record: true
+        command: npm run test:ci:edge
+        post-steps:
+          - store_artifacts:
+              path: coverage
+
 workflows:
   linux:
-    jobs:
-      - cypress/install:
-          executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
-
-      - cypress/run:
-          name: Chrome
-          executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
-          requires:
-            - cypress/install
-          browser: chrome
-          group: chrome
-          parallel: true
-          parallelism: 2
-          record: true
-          command: npm run test:ci:chrome
-          post-steps:
-            - store_artifacts:
-                path: coverage
-          no-workspace: true
-
-      - cypress/run:
-          name: Firefox
-          executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
-          requires:
-            - cypress/install
-          browser: firefox
-          group: firefox
-          parallel: true
-          parallelism: 2
-          record: true
-          command: npm run test:ci:firefox
-          post-steps:
-            - store_artifacts:
-                path: coverage
-          no-workspace: true
-
-      - cypress/run:
-          name: Edge
-          executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
-          requires:
-            - cypress/install
-          browser: edge
-          group: edge
-          parallel: true
-          parallelism: 2
-          record: true
-          command: npm run test:ci:edge
-          post-steps:
-            - store_artifacts:
-                path: coverage
-          no-workspace: true
+    <<: *linux-workflow
