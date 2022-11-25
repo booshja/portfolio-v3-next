@@ -38,7 +38,6 @@ linux-workflow: &linux-workflow
         ci-build-id: ${CIRCLE_SHA1:0:8}
         record: true
         command: 'npm run test:ci:chrome'
-        start: 'npm start'
         post-steps:
           - store_artifacts:
               path: coverage
@@ -55,7 +54,6 @@ linux-workflow: &linux-workflow
         ci-build-id: ${CIRCLE_SHA1:0:8}
         record: true
         command: 'npm run test:ci:firefox'
-        start: 'npm start'
         post-steps:
           - store_artifacts:
               path: coverage
@@ -72,7 +70,6 @@ linux-workflow: &linux-workflow
         ci-build-id: ${CIRCLE_SHA1:0:8}
         record: true
         command: 'npm run test:ci:edge'
-        start: 'npm start'
         post-steps:
           - store_artifacts:
               path: coverage
