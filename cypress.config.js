@@ -11,6 +11,10 @@ module.exports = defineConfig({
   defaultCommandTimeout: 10000,
   pageLoadTimeout: 10000,
   fixturesFolder: 'cypress/fixtures',
+  retries: {
+    runMode: 2,
+    openMode: 0,
+  },
   e2e: {
     setupNodeEvents(on, config) {
       // eslint-disable-next-line no-param-reassign
