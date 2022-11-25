@@ -5,26 +5,19 @@ orbs:
   cypress: cypress-io/cypress@2
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Commands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
-commands:
-  build:
-    steps:
-      - run:
-          name: Build Step
-          command: npm run build
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Workflows ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 workflows:
-  build:
+  linux:
     jobs:
       - cypress/install:
           executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
-          build: 'npm run build'
+
       - cypress/run:
           name: Chrome
           executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
           requires:
             - cypress/install
-          executor: with-browsers
           browser: chrome
           group: chrome
           parallel: true
@@ -34,12 +27,13 @@ workflows:
           post-steps:
             - store_artifacts:
                 path: coverage
+          no-workspace: true
+
       - cypress/run:
           name: Firefox
           executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
           requires:
             - cypress/install
-          executor: with-browsers
           browser: firefox
           group: firefox
           parallel: true
@@ -49,12 +43,13 @@ workflows:
           post-steps:
             - store_artifacts:
                 path: coverage
+          no-workspace: true
+
       - cypress/run:
           name: Edge
           executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
           requires:
             - cypress/install
-          executor: with-browsers
           browser: edge
           group: edge
           parallel: true
@@ -64,3 +59,4 @@ workflows:
           post-steps:
             - store_artifacts:
                 path: coverage
+          no-workspace: true
