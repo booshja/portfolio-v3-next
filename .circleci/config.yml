@@ -3,6 +3,10 @@ version: 2.1
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Orbs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 orbs:
   cypress: cypress-io/cypress@2.2.0
+executors:
+  with-browsers:
+    docker:
+      - image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Commands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 commands:
@@ -22,7 +26,7 @@ workflows:
           name: Chrome
           requires:
             - cypress/install
-          executor: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+          executor: with-browsers
           browser: chrome
           group: chrome
           parallel: true
