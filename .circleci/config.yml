@@ -1,0 +1,66 @@
+version: 2.1
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Orbs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+orbs:
+  cypress: cypress-io/cypress@2.1.0
+executors:
+  with-browsers:
+    docker:
+      - image: 'cypress/browsers:node16.14.2-slim-chrome100-ff99-edge'
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Commands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+commands:
+  build:
+    steps:
+      - run:
+          name: Build Step
+          command: npm run build
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Workflows ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+workflows:
+  build:
+    jobs:
+      - cypress/install:
+          build: 'npm run build'
+      - cypress/run:
+          name: Chrome
+          requires:
+            - cypress/install
+          executor: with-browsers
+          browser: chrome
+          group: chrome
+          parallel: true
+          parallelism: 2
+          record: true
+          command: npm run test:ci:chrome
+          post-steps:
+            - store_artifacts:
+                path: coverage
+      - cypress/run:
+          name: Firefox
+          requires:
+            - cypress/install
+          executor: with-browsers
+          browser: firefox
+          group: firefox
+          parallel: true
+          parallelism: 2
+          record: true
+          command: npm run test:ci:firefox
+          post-steps:
+            - store_artifacts:
+                path: coverage
+      - cypress/run:
+          name: Edge
+          requires:
+            - cypress/install
+          executor: with-browsers
+          browser: edge
+          group: edge
+          parallel: true
+          parallelism: 2
+          record: true
+          command: npm run test:ci:edge
+          post-steps:
+            - store_artifacts:
+                path: coverage
