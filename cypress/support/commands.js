@@ -94,34 +94,23 @@ Cypress.Commands.add('assertMobileNavbar', () => {
     .should('have.length', 1);
   cy.getBySel('mobile-menu-wrapper').should('exist').and('not.be.visible');
   // click open
-  cy.getBySel('mobile-menu-button').click();
-  cy.window({ log: false }).then((win) => {
-    const { innerHeight, innerWidth } = win;
-    cy.log(JSON.stringify({ innerHeight, innerWidth }));
-
-    cy.getBySel('closing-button').then(($el) => {
-      $el.each((k, el) => {
-        if (!Cypress.dom.isAttached(el) || !Cypress.dom.isVisible(el)) {
-          return;
-        }
-        const rect = el.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > innerHeight) {
-          // the button is outside the viewport vertically
-          cy.getBySel('mobile-menu-button').click();
-        }
-        // if (rect.right < 0 || rect.left > innerWidth) {
-        //   // the button is outside the viewport horizontally
-        //   cy.getBySel('mobile-menu-button').click();
-        // }
-      });
+  cy.getBySel('mobile-menu-button')
+    .click()
+    .then(($el) => {
+      const expanded = $el.prop('ariaExpanded');
+      if (expanded === 'false') {
+        cy.wrap($el).click();
+      }
     });
-  });
   // open
   cy.getBySel('mobile-menu-wrapper')
     .should('exist')
     .children()
     .should('have.length', 4);
-  cy.getBySel('closing-button').should('exist').and('contain.text', 'X');
+  cy.getBySel('closing-button')
+    .should('exist')
+    .and('be.visible')
+    .and('contain.text', 'X');
   // menu links
   cy.getBySel('mobile-logo-link')
     .should('exist')

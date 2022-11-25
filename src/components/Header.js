@@ -61,7 +61,7 @@ const Header = ({ notFound }) => {
           {`JacobAndes.${makeBreadcrumbs(router.pathname)}`}
         </WebsiteName>
       </WebsiteNameContainer>
-      <Nav data-test="desktop-nav">
+      <Nav data-test="desktop-nav" role="navigation">
         <StyledNavLink href="/" data-test="is-nav-link">
           .is()
         </StyledNavLink>
@@ -88,6 +88,8 @@ const Header = ({ notFound }) => {
         type="button"
         onClick={handleMenuOpen}
         data-test="mobile-menu-button"
+        aria-expanded={open ? 'true' : 'false'}
+        aria-controls="mobile-menu"
       >
         <Image
           src={colorMode === 'light' ? MountainLight : MountainDark}
@@ -98,17 +100,17 @@ const Header = ({ notFound }) => {
           data-test="hamburger-button"
         />
       </MobileMenuButton>
-      <MenuWrapper open={open} data-test="mobile-menu-wrapper">
+      <MenuWrapper open={open} id="mobile-menu" data-test="mobile-menu-wrapper">
         <ClosingXButton
           onClick={() => setOpen((o) => !o)}
           data-test="closing-button"
         >
           X
         </ClosingXButton>
-        <MobileMenuLink href="/" logo data-test="mobile-logo-link">
+        <MobileMenuLink href="/" logo="true" data-test="mobile-logo-link">
           JacobAndes.dev
         </MobileMenuLink>
-        <nav data-test="mobile-nav">
+        <nav data-test="mobile-nav" role="navigation">
           <MobileMenuLink href="/" data-test="is-mobile-nav-link">
             .is()
           </MobileMenuLink>

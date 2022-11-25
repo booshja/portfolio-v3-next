@@ -123,7 +123,7 @@ const ResultText = styled.h2`
 
 const MobileMenuLink = styled(Link)`
   color: var(--color-text);
-  font-size: ${({ logo }) => (logo ? '2rem' : '2.6rem')};
+  font-size: ${({ logo }) => (logo === 'true' ? '2rem' : '2.6rem')};
   font-weight: ${({ bold }) => (bold ? 600 : 400)};
   padding: 1rem;
   font-family: Poppins, sans-serif;

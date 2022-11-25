@@ -38,9 +38,6 @@ linux-workflow: &linux-workflow
         ci-build-id: ${CIRCLE_SHA1:0:8}
         record: true
         command: 'npm run test:ci:chrome'
-        post-steps:
-          - store_artifacts:
-              path: coverage
 
     - cypress/run:
         name: 'UI Tests - Firefox'
@@ -54,9 +51,6 @@ linux-workflow: &linux-workflow
         ci-build-id: ${CIRCLE_SHA1:0:8}
         record: true
         command: 'npm run test:ci:firefox'
-        post-steps:
-          - store_artifacts:
-              path: coverage
 
     - cypress/run:
         name: 'UI Tests - Edge'
@@ -70,9 +64,6 @@ linux-workflow: &linux-workflow
         ci-build-id: ${CIRCLE_SHA1:0:8}
         record: true
         command: 'npm run test:ci:edge'
-        post-steps:
-          - store_artifacts:
-              path: coverage
 
 workflows:
   linux:
