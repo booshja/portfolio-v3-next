@@ -121,10 +121,7 @@ Cypress.Commands.add('assertMobileNavbar', () => {
     .should('exist')
     .children()
     .should('have.length', 4);
-  cy.getBySel('closing-button')
-    .should('exist')
-    .and('be.visible')
-    .and('contain.text', 'X');
+  cy.getBySel('closing-button').should('exist').and('contain.text', 'X');
   // menu links
   cy.getBySel('mobile-logo-link')
     .should('exist')

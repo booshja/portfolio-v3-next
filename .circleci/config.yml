@@ -34,10 +34,11 @@ linux-workflow: &linux-workflow
           - Setup Linux
         group: 'UI - Chrome'
         parallel: true
-        parallelism: 5
+        parallelism: 4
         ci-build-id: ${CIRCLE_SHA1:0:8}
         record: true
-        command: npm run test:ci:chrome
+        command: 'npm run test:ci:chrome'
+        start: 'npm start'
         post-steps:
           - store_artifacts:
               path: coverage
@@ -50,10 +51,11 @@ linux-workflow: &linux-workflow
           - Setup Linux
         group: 'UI - Firefox'
         parallel: true
-        parallelism: 5
+        parallelism: 4
         ci-build-id: ${CIRCLE_SHA1:0:8}
         record: true
-        command: npm run test:ci:firefox
+        command: 'npm run test:ci:firefox'
+        start: 'npm start'
         post-steps:
           - store_artifacts:
               path: coverage
@@ -69,7 +71,8 @@ linux-workflow: &linux-workflow
         parallelism: 5
         ci-build-id: ${CIRCLE_SHA1:0:8}
         record: true
-        command: npm run test:ci:edge
+        command: 'npm run test:ci:edge'
+        start: 'npm start'
         post-steps:
           - store_artifacts:
               path: coverage
