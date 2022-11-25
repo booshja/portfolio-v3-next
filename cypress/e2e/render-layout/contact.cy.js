@@ -1,8 +1,5 @@
 /// <reference types='cypress' />
 
-// fixtures
-import contactData from '../../fixtures/contact.json';
-
 describe('Pages Render: Contact Page', () => {
   it('should render the Desktop Contact page and its contents', () => {
     cy.visit('/contact');

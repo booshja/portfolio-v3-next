@@ -76,11 +76,11 @@ const Experience = ({ projects: projs }) => {
                   {item.name}:
                 </ExpItemName>
                 <ExpItemText data-test="exp-item-description">
-                  <span data-test="description-label-span">description: </span>{' '}
+                  <span data-test="description-label-span">description: </span>
                   {item.description}
                 </ExpItemText>
                 <ExpItemText data-test="exp-item-thoughts">
-                  <span data-test="thoughts-label-span">thoughts: </span>{' '}
+                  <span data-test="thoughts-label-span">thoughts: </span>
                   {item.thoughts}
                 </ExpItemText>
                 <TagList data-test="exp-item-tag-list">
@@ -117,6 +117,7 @@ const Experience = ({ projects: projs }) => {
                         <FontAwesomeIcon
                           icon={faArrowDown}
                           data-test="exp-card-inner-flip-icon"
+                          alt="Flip card arrow"
                         />
                       </FlipArrow>
                     </ExpCardFront>
@@ -133,6 +134,7 @@ const Experience = ({ projects: projs }) => {
                         >
                           <FontAwesomeIcon
                             icon={faGithub}
+                            alt="GitHub Logo"
                             data-test="exp-card-inner-github-link-icon"
                           />
                           View on GitHub
@@ -147,6 +149,7 @@ const Experience = ({ projects: projs }) => {
                         >
                           <FontAwesomeIcon
                             icon={faLaptop}
+                            alt="Laptop Icon"
                             data-test="exp-card-inner-live-link-icon"
                           />
                           View Live Website
@@ -188,7 +191,7 @@ const Experience = ({ projects: projs }) => {
         />
         <meta name="robots" content="index, follow" />
       </Head>
-      <PublicLayout data-test="public-layout">
+      <PublicLayout>
         <ExpContainer data-test="page-container">
           <PageTitle data-test="page-title">experience()</PageTitle>
           {content}

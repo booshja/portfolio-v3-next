@@ -1,0 +1,77 @@
+{
+  "projects": [
+    {
+      "name": "JacobAndes.dev",
+      "description": "This very website you're viewing right now!",
+      "thoughts": "I've rebuilt this site a few times, finally landing on using NextJS, as it's what I'm using most often in my day job. It's been fun learning more about Next and having a playground to break and try new things!",
+      "github_url": "https://github.com/booshja/portfolio-v3-next",
+      "live_url": "https://jacobandes.dev",
+      "tags": [
+        "javascript",
+        "react",
+        "redux toolkit",
+        "nextjs",
+        "node",
+        "styled-components",
+        "mongodb",
+        "emailjs",
+        "vercel"
+      ]
+    },
+    {
+      "name": "import/from Web Development Blog",
+      "description": "My personal blog where I write about all things Front End-related",
+      "thoughts": "This is a fun, lightweight blog that reads my posts from Markdown files stored in the project repo! Originally built and then adapted from Maximillian Schwarzmüller's Next.js course.",
+      "tags": ["javascript", "react", "next.js", "emotion", "auth0", "vercel"]
+    },
+    {
+      "name": "Bttn",
+      "description": "At Bttn I'm a Software Engineer II, working on internal tools and integrations, as well as maintaining the Storefront codebase.",
+      "thoughts": "Building the future of medical distribution at an early-stage startup. Every day is a new boundary pushed, something new learned, and another problem solved!",
+      "github_url": null,
+      "live_url": null,
+      "tags": [
+        "javascript",
+        "react",
+        "nextjs",
+        "redux toolkit",
+        "rtk query",
+        "node",
+        "express",
+        "styled-components",
+        "emotion",
+        "mongodb",
+        "auth0",
+        "python",
+        "django",
+        "celery",
+        "postgresql",
+        "heroku"
+      ]
+    },
+    {
+      "name": "PaintingJoy.art Front End",
+      "description": "Built for a local muralist and artist, this app is part portfolio, part e-commerce store, and part custom build admin CMS. This is the repo for the static React app.",
+      "thoughts": "This was a project that helped me realize the impact of scope creep, as well as pushed my boundaries in using images and building an admin CMS for customizability.",
+      "github_url": "https://github.com/booshja/PaintingJoy-frontend",
+      "live_url": null,
+      "tags": ["javascript", "react", "styled-components", "auth0"]
+    },
+    {
+      "name": "PaintingJoy.art Back End",
+      "description": "Built for a local muralist and artist, this app is part portfolio, part e-commerce store, and part custom build admin CMS. This is the repo for the Express API.",
+      "thoughts": "This was a project that helped me realize the impact of scope creep, as well as pushed my boundaries in using images and building an admin CMS for customizability.",
+      "github_url": "https://github.com/booshja/PaintingJoy-backend",
+      "live_url": null,
+      "tags": ["javascript", "node", "express", "postgres", "auth0", "heroku"]
+    },
+    {
+      "name": "SetPlaylist",
+      "description": "Find your favorite artist's setlists, and have them translated into a playlist, and added to your Spotify account!",
+      "thoughts": "This was my first Capstone project for Springboard bootcamp, and it was my first time building something connecting to outside API's, so it was a lot of fun to do it with Spotify with my love of music!",
+      "github_url": "https://github.com/booshja/setplaylist-python",
+      "live_url": null,
+      "tags": ["python", "flask", "sass", "postgres", "tekore", "heroku"]
+    }
+  ]
+}
