@@ -24,7 +24,7 @@ linux-workflow: &linux-workflow
         post-steps:
           - run:
               name: Print machine info ℹ️
-              command: cypress info
+              command: npx cypress info
 
     - cypress/run:
         name: 'UI Tests - Chrome'
@@ -59,7 +59,7 @@ linux-workflow: &linux-workflow
               path: coverage
 
     - cypress/run:
-        name: Edge
+        name: 'UI Tests - Edge'
         browser: edge
         executor: with-chrome-firefox-and-edge
         requires:
