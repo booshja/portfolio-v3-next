@@ -1,5 +1,6 @@
 /// <reference types='cypress' />
 
+// fixtures
 import expData from '../../fixtures/experience.json';
 
 describe('Pages Render: Experience Page', () => {
