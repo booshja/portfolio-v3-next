@@ -32,4 +32,19 @@ const breakpointValues = {
   desktopLg: 1440,
 };
 
-export { breakpoints, breakpointValues };
+const displayValues = [
+  // iPhone SE
+  [375, 667],
+  // iPhone XR
+  [414, 896],
+  // iPad Mini
+  [768, 1024],
+  // iPad Mini Horizontal
+  [1024, 768],
+  // Nest Hub Max
+  [1280, 800],
+  // Large screen
+  [1440, 960],
+];
+
+export { breakpoints, breakpointValues, displayValues };

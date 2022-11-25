@@ -84,7 +84,8 @@ Cypress.Commands.add('assertMobileNavbar', () => {
   cy.getBySel('header-container')
     .should('exist')
     .and('be.visible')
-    .children.should('have.length', 2);
+    .children()
+    .should('have.length', 4);
   // closed
   cy.getBySel('mobile-menu-button')
     .should('exist')
@@ -94,10 +95,30 @@ Cypress.Commands.add('assertMobileNavbar', () => {
   cy.getBySel('mobile-menu-wrapper').should('exist').and('not.be.visible');
   // click open
   cy.getBySel('mobile-menu-button').click();
+  cy.window({ log: false }).then((win) => {
+    const { innerHeight, innerWidth } = win;
+    cy.log(JSON.stringify({ innerHeight, innerWidth }));
+
+    cy.getBySel('closing-button').then(($el) => {
+      $el.each((k, el) => {
+        if (!Cypress.dom.isAttached(el) || !Cypress.dom.isVisible(el)) {
+          return;
+        }
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > innerHeight) {
+          // the button is outside the viewport vertically
+          cy.getBySel('mobile-menu-button').click();
+        }
+        // if (rect.right < 0 || rect.left > innerWidth) {
+        //   // the button is outside the viewport horizontally
+        //   cy.getBySel('mobile-menu-button').click();
+        // }
+      });
+    });
+  });
   // open
   cy.getBySel('mobile-menu-wrapper')
     .should('exist')
-    .and('be.visible')
     .children()
     .should('have.length', 4);
   cy.getBySel('closing-button')
@@ -115,7 +136,7 @@ Cypress.Commands.add('assertMobileNavbar', () => {
     .and('be.visible')
     .children()
     .should('have.length', 5);
-  cy.getBySel('desktop-nav').should('not.exist').and('not.be.visible');
+  cy.getBySel('desktop-nav').should('not.be.visible');
   cy.getBySel('is-mobile-nav-link')
     .should('exist')
     .and('be.visible')
@@ -191,6 +212,6 @@ Cypress.Commands.add('assertDesktopPublicLayout', () => {
 
 Cypress.Commands.add('assertMobilePublicLayout', () => {
   cy.assertMobileNavbar();
-  cy.getBySel('socials-container').should('not.exist');
-  cy.asserCopyright();
+  cy.getBySel('socials-container').should('not.be.visible');
+  cy.assertCopyright();
 });
