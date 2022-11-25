@@ -94,14 +94,13 @@ Cypress.Commands.add('assertMobileNavbar', () => {
     .should('have.length', 1);
   cy.getBySel('mobile-menu-wrapper').should('exist').and('not.be.visible');
   // click open
-  cy.getBySel('mobile-menu-button')
-    .click()
-    .then(($el) => {
-      const expanded = $el.prop('ariaExpanded');
-      if (expanded === 'false') {
-        cy.wrap($el).click();
-      }
-    });
+  cy.getBySel('mobile-menu-button').click();
+  cy.getBySel('mobile-menu-button').then(($el) => {
+    const expanded = $el.prop('ariaExpanded');
+    if (expanded === 'false') {
+      cy.wrap($el).click();
+    }
+  });
   // open
   cy.getBySel('mobile-menu-wrapper')
     .should('exist')

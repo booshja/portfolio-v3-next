@@ -73,7 +73,11 @@ const Contact = () => {
 
   let content;
   const recaptchaRef = createRef();
-  const sitekey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  // eslint-disable-next-line operator-linebreak
+  const sitekey =
+    // eslint-disable-next-line operator-linebreak
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+    '2Aj2AAjjAAAAAAJjjJjjJ_jJJ2JjjJJJ2jjXjjjj';
 
   const onSubmit = async (formData) => {
     try {

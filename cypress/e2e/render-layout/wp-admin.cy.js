@@ -7,7 +7,7 @@ describe('Pages Render: WP-Admin Page', () => {
   displayValues.forEach((size) => {
     it(`should render the WP-Admin page on ${size[0]}px x ${size[1]} and its contents`, () => {
       cy.viewport(size[0], size[1]);
-
+      cy.visit('/');
       cy.visit('/wp-admin');
       cy.location('pathname').should((loc) => {
         expect(loc).to.eq('/wp-admin');

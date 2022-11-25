@@ -9,7 +9,7 @@ describe('Pages Render: Experience Page', () => {
   displayValues.forEach((size) => {
     it(`should render the Experience page on ${size[0]}px x ${size[1]}px and its contents`, () => {
       cy.viewport(size[0], size[1]);
-
+      cy.visit('/');
       cy.visit('/experience');
       cy.location('pathname').should((loc) => {
         expect(loc).to.eq('/experience');
