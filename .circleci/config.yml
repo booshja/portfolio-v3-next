@@ -24,7 +24,7 @@ linux-workflow: &linux-workflow
         post-steps:
           - run:
               name: Print machine info ℹ️
-              command: npm run cypress info
+              command: cypress info
 
     - cypress/run:
         name: 'UI Tests - Chrome'
