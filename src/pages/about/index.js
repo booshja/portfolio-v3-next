@@ -19,6 +19,7 @@ import {
   SkillsHeader,
   SkillsList,
   Skill,
+  StoryLink,
 } from '../../styles/pages/typography';
 // assets
 import Headshot from '../../../public/images/headshot.jpg';
@@ -81,23 +82,24 @@ const About = () => (
               <StoryText>
                 I&apos;m a Software Engineer from Seattle, WA with experience
                 across the stack, but a passion for the Front End. I&apos;m
-                currently working as Software Engineer II, Core Platform Team at
-                Bttn. I love finding creative solutions to complex problems and
+                currently working as a Software Engineer at&nbsp;
+                <StoryLink href="https://smartsheet.com" target="_blank">
+                  Smartsheet
+                </StoryLink>
+                . I love finding creative solutions to complex problems and
                 creating beautiful, reliable, and responsive web applications.
               </StoryText>
               <StoryText>
-                When I&apos;m not coding, you can find me spending time with
-                my&nbsp;
-                {/* <StoryLink href="https://paintingjoy.art"
-              target="_blank"
-              rel="noopener noreferrer"
-              >
-              partner
-              </StoryLink>
-            &nbsp;partner and  */}
+                When I&apos;m not coding, you can find me spending time with my
                 dogs, listening to music, going to see live music, reading,
-                watching hockey, or clumsily playing hockey in the Kraken Hockey
-                League.
+                watching hockey, or clumsily playing hockey in the&nbsp;
+                <StoryLink
+                  href="https://krakenhockeyleague.com/team/11531/home/"
+                  target="_blank"
+                >
+                  Kraken Hockey League
+                </StoryLink>
+                .
               </StoryText>
             </section>
             <SkillsSection>
